@@ -7,8 +7,9 @@ La demo è **simulata**: dialoghi scritti a mano, dati inventati.
 | File | A cosa serve |
 |---|---|
 | `index.html` | Struttura e testi della pagina |
-| `style.css` | Colori, font, effetto vetro. La palette è in cima al file |
-| `demo.js` | Le scene della demo (oggetto `SCENES`) e il cambio colore |
+| `style.css` | Colori, font e impaginazione. La palette (bianco e nero) è in cima al file |
+| `demo.js` | Le scene della demo (oggetto `SCENES`) |
+| `site.js` | Le animazioni che fanno comparire i contenuti mentre scorri |
 | `reactor.js` | Il reattore 3D con three.js (da sostituire con i prototipi) |
 
 ## Pubblicazione

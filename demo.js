@@ -1,6 +1,7 @@
 /* =========================================================
    DEMO SIMULATA DI MIMIR
    Tutto è scritto a mano: nessun dato reale, nessun server.
+   I nomi e i dati nelle scene sono inventati.
    Per aggiungere o modificare una scena, cambia SCENES qui sotto.
    ========================================================= */
 
@@ -163,17 +164,3 @@ document.querySelectorAll(".scene").forEach(btn => {
     playBtn.textContent = "▶ Di' «Ehi Mimir»";
   });
 });
-
-/* ---------- cambio colore fucsia / acqua ---------- */
-const themeBtn = document.getElementById("theme-toggle");
-function applyTheme(t) {
-  document.documentElement.dataset.theme = t;
-  themeBtn.querySelector("span").textContent = t === "fucsia" ? "Acqua" : "Fucsia";
-  try { localStorage.setItem("mimir-theme", t); } catch (e) {}
-  window.dispatchEvent(new Event("mimir-theme"));
-}
-let saved = "fucsia";
-try { saved = localStorage.getItem("mimir-theme") || "fucsia"; } catch (e) {}
-applyTheme(saved);
-themeBtn.addEventListener("click", () =>
-  applyTheme(document.documentElement.dataset.theme === "fucsia" ? "acqua" : "fucsia"));

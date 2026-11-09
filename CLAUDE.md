@@ -22,8 +22,12 @@
   Niente pagine separate, niente schede, niente slide.
 - Sito statico per GitHub Pages: solo HTML, CSS e JavaScript.
   Niente build, niente npm, niente framework. Percorsi relativi.
-- Stile: futuristico 3D, liquid glass, font Orbitron ed Exo 2,
-  palette fucsia/nero e acqua/nero (variabili in cima a style.css).
+- Stile: ispirato al sito di Apple. Bianco e nero, tanto spazio,
+  titoli grandi, dettagli curati, animazioni morbide allo scorrimento.
+- Font di sistema stile Apple (SF Pro sui Mac, Inter come riserva).
+  Niente Orbitron, niente font "futuristici".
+- Colori: solo bianco, nero e grigi (variabili in cima a style.css).
+  Niente fucsia, viola o acqua.
 - La demo in demo.js è simulata: mai dati personali reali,
   solo dati inventati.
 - MIMIR è solo vocale: nella demo niente caselle di testo.
