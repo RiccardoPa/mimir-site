@@ -45,8 +45,21 @@
         <a href="#come">Come è fatto</a>
         <a href="#stato">Stato dei lavori</a>
       </nav>
-      <a href="#demo" class="nav-cta">Demo</a>
+      <div class="nav-right">
+        <a href="#demo" class="nav-cta">Demo</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-mobile">Capitoli</button>
+      </div>
     </div>
+    <!-- menu per telefono: i 7 capitoli -->
+    <nav id="menu-mobile" class="menu-mobile" aria-label="Capitoli" hidden>
+      <a href="#top"><span class="rune">ᛗ</span>Apertura</a>
+      <a href="#demo"><span class="rune">ᚨ</span>Demo</a>
+      <a href="#giornata"><span class="rune">ᛞ</span>Una giornata</a>
+      <a href="#nome"><span class="rune">ᛟ</span>I moduli</a>
+      <a href="#privacy"><span class="rune">ᛉ</span>Privacy</a>
+      <a href="#come"><span class="rune">ᛃ</span>Come è fatto · Stato dei lavori</a>
+      <a href="#nota"><span class="rune">ᚱ</span>Nota personale · Domande</a>
+    </nav>
   </header>
 
   <main id="top">
@@ -497,7 +510,7 @@
     </section>
 
     <!-- ============ NOTA PERSONALE ============ -->
-    <section class="band light">
+    <section id="nota" class="band light">
       <div class="wrap narrow letter">
         <p class="eyebrow"><span class="ch-rune rune" title="Runa Raidho" aria-hidden="true">ᚱ</span>Una nota personale</p>
         <p class="letter-text">Ho iniziato MIMIR perché volevo un assistente che fosse davvero mio. Che parlasse italiano, che ricordasse le cose giuste e che non mandasse la mia vita sui server di qualcun altro.</p>

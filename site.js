@@ -14,3 +14,13 @@ document.querySelectorAll(".mod").forEach(card => {
     card.setAttribute("aria-pressed", open ? "true" : "false");
   });
 });
+
+/* ---------- menu dei capitoli (solo telefono) ---------- */
+const menuBtn = document.querySelector(".menu-btn");
+const menu = document.getElementById("menu-mobile");
+if (menuBtn && menu) {
+  const setMenu = open => { menu.hidden = !open; menuBtn.setAttribute("aria-expanded", open ? "true" : "false"); };
+  menuBtn.addEventListener("click", () => setMenu(menu.hidden));
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+}
