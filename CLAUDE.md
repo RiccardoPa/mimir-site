@@ -69,6 +69,8 @@
   un'etichetta piccola: "Funziona oggi", "In sviluppo" o "In programma".
   Prima di assegnarne una nuova, chiedi a Riccardo in chat.
 - In apertura c'è l'etichetta "Anteprima · in sviluppo".
+- Titolo dell'apertura (scelto da Riccardo): «Vive sul mio Mac. Sta imparando
+  a parlare.» La sezione sul nome finisce con «Gli ho dato un Mac.»
 - Il tasto finale è "Segui il progetto" (niente "Compra" o "Scarica"):
   porta all'ancora #stato, dove ci sarà la sezione "Stato dei lavori".
 - Niente link a LinkedIn, da nessuna parte del sito.

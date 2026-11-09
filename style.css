@@ -166,6 +166,8 @@ body::after {
 #nome .statement { margin-bottom: 30px; }
 .story { font-size: 19px; color: var(--gray); margin-bottom: 18px; max-width: 560px; }
 .story b { color: var(--ink); font-weight: 600; }
+.story-punch { font-size: clamp(26px, 3vw, 34px); font-weight: 600; letter-spacing: -0.03em; margin-top: 8px; color: var(--ink); }
+.dark .story-punch { color: #fff; }
 .letter-text { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.35; letter-spacing: -0.02em; font-weight: 500; color: var(--ink); margin-bottom: 22px; }
 .signature { font-size: 22px; font-style: italic; color: var(--gray); margin-top: 30px; }
 
