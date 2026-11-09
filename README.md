@@ -9,10 +9,13 @@ La demo è **simulata**: dialoghi scritti a mano, dati inventati.
 | `index.html` | Struttura e testi della pagina |
 | `style.css` | Colori, font e impaginazione. La palette (bianco e nero) è in cima al file |
 | `demo.js` | Le scene della demo (oggetto `SCENES`) |
+| `fonts/` | I font Inter e Noto Sans Runic, salvati qui per non chiamare Google |
+| `favicon.svg` | L'icona della scheda del browser (runa ᛗ) |
+| `og-image.png` | L'immagine che compare quando condividi il link (1200x630) |
 | `site.js` | Le animazioni che fanno comparire i contenuti mentre scorri e l'onda sonora grande |
 
 ## Pubblicazione
 GitHub Pages: Settings → Pages → Deploy from a branch → `main` / `(root)`.
 Indirizzo: https://riccardopa.github.io/mimir-site/
 
-Nessuna installazione necessaria: il font Inter arriva da Google Fonts, tutto il resto è nei file.
+Nessuna installazione necessaria e nessuna chiamata esterna: anche i font sono nei file.

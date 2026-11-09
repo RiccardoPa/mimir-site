@@ -4,13 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIMIR — L'assistente che ti conosce. E non lo dice a nessuno.</title>
-  <meta name="description" content="MIMIR è un assistente AI personale che vive sul tuo Mac: parla italiano, ricorda, agisce. Locale, vocale, privato.">
+  <meta name="description" content="MIMIR è l'assistente AI personale che sto costruendo: vive sul Mac, parla italiano e tiene i dati in casa. Anteprima di un progetto in sviluppo.">
   <meta name="theme-color" content="#000000">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Runic&display=swap&text=ᛗᛁᚱᚲᛊᚠᛚᚷᚹᛒ" rel="stylesheet">
+  <link rel="canonical" href="https://riccardopa.github.io/mimir-site/">
+
+  <!-- icona della scheda del browser: la runa ᛗ -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- anteprima quando il link viene condiviso (LinkedIn, WhatsApp, ecc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="MIMIR">
+  <meta property="og:title" content="MIMIR — Anteprima · Assistente AI locale e vocale">
+  <meta property="og:description" content="MIMIR è l'assistente AI personale che sto costruendo: vive sul Mac, parla italiano e tiene i dati in casa. Anteprima di un progetto in sviluppo.">
+  <meta property="og:url" content="https://riccardopa.github.io/mimir-site/">
+  <meta property="og:image" content="https://riccardopa.github.io/mimir-site/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="La runa ᛗ e la scritta MIMIR su sfondo nero">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- i font sono nella cartella fonts/: nessuna chiamata a Google -->
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // su Mac, iPhone e iPad il sito usa il font di Apple (SF Pro), altrove Inter
+    if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) document.documentElement.classList.add("apple");
+  </script>
 </head>
 <body>
 
@@ -39,6 +59,7 @@
       </div>
 
       <div class="hero-text">
+        <p class="preview-badge"><span class="live-dot"></span> Anteprima · in sviluppo</p>
         <p class="rune-line" aria-label="MIMIR scritto in rune">ᛗ ᛁ ᛗ ᛁ ᚱ</p>
         <p class="eyebrow">Il mio assistente personale · Locale · Vocale</p>
         <h1>Il tuo secondo cervello.<br><span class="shine">Ha imparato a parlare.</span></h1>
@@ -63,24 +84,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ NUMERI ============ -->
-    <section class="stats" aria-label="MIMIR in numeri">
-      <div class="wrap stats-grid">
-        <div class="stat"><b>1</b><span>parola per svegliarlo</span></div>
-        <div class="stat"><b>8</b><span>moduli specializzati</span></div>
-        <div class="stat"><b>0</b><span>abbonamenti obbligatori</span></div>
-        <div class="stat"><b>24/7</b><span>veglia sui tuoi sistemi</span></div>
-      </div>
-    </section>
-
-    <!-- ============ NASTRO DI PAROLE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Posta</span><span>Agenda</span><span>Casa</span><span>Memoria</span><span>Ricerca</span><span>Meteo</span><span>Promemoria</span><span>Backup</span><span>Sicurezza</span><span>Auto-riparazione</span>
-        <span>Posta</span><span>Agenda</span><span>Casa</span><span>Memoria</span><span>Ricerca</span><span>Meteo</span><span>Promemoria</span><span>Backup</span><span>Sicurezza</span><span>Auto-riparazione</span>
-      </div>
-    </div>
 
     <!-- ============ PRODOTTO: Mac + iPhone ============ -->
     <section id="prodotto" class="band white">
@@ -544,7 +547,7 @@
         <div class="orb-core closing-orb" aria-hidden="true"><div class="orb-sheen"></div></div>
         <h2 class="mega">MIMIR.</h2>
         <p class="lead">Il tuo assistente. Solo tuo.</p>
-        <a href="#demo" class="btn light">Ascolta la demo</a>
+        <a href="https://github.com/RiccardoPa/mimir-site" class="btn light" target="_blank" rel="noopener">Segui il progetto</a>
       </div>
     </section>
   </main>

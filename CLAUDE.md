@@ -29,6 +29,8 @@
 - Font di sistema stile Apple (SF Pro sui Mac, Inter come riserva).
   Niente Orbitron, niente font "futuristici".
   Unica eccezione: Noto Sans Runic, solo per i simboli delle rune.
+- I font stanno nella cartella fonts/: niente Google Fonts, nessuna
+  chiamata a siti esterni (il sito parla di privacy, deve rispettarla).
 - Tono personale, non da azienda: rune, capitoli numerati, la storia
   del nome (mitologia norrena) e la nota firmata da Riccardo.
 - Colori: solo bianco, nero e grigi (variabili in cima a style.css).
@@ -40,3 +42,21 @@
   fatta solo con CSS (classe orb-core in style.css).
 - Le immagini (Mac, iPhone, orbita dei moduli) sono disegnate con
   HTML e CSS, con nomi e dati inventati.
+
+## Onestà: "vendere senza vendere"
+- Al presente solo ciò che funziona già. Il resto si scrive "in arrivo".
+- Ogni funzione descritta (giornata, "Cosa sa fare", FAQ, tessere) ha
+  un'etichetta piccola: "Funziona oggi", "In sviluppo" o "In programma".
+  Prima di assegnarne una nuova, chiedi a Riccardo in chat.
+- In apertura c'è l'etichetta "Anteprima · in sviluppo".
+- Il tasto finale è "Segui il progetto" (niente "Compra" o "Scarica").
+- Niente numeri riempitivi (tipo "1 · 8 · 0 · 24/7") e niente nastro di
+  parole giganti.
+
+## Condivisione
+- In index.html ci sono i tag Open Graph (og:title, og:description,
+  og:image, og:url): tienili aggiornati se cambiano titolo o descrizione.
+- og-image.png (1200x630) è l'anteprima per LinkedIn e gli altri social.
+- favicon.svg è l'icona della scheda: la runa ᛗ.
+- Documenti di revisione o appunti privati non vanno mai nel repository:
+  è pubblico.
