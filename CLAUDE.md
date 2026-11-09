@@ -22,57 +22,82 @@
   Niente pagine separate, niente schede, niente slide.
 - Sito statico per GitHub Pages: solo HTML, CSS e JavaScript.
   Niente build, niente npm, niente framework. Percorsi relativi.
-- Stile: ispirato al sito di Apple. Bianco e nero, tanto spazio,
-  titoli grandi, dettagli curati.
+- Pagina corta: 4 capitoli, ognuno con la sua runa (filo conduttore):
+  ᛗ Apertura = Demo · ᛞ Una giornata (compatta) · ᛟ Moduli + storia del
+  nome (orbita + tessere) · ᛃ Come è fatto + Stato dei lavori (#stato)
+  + privacy in breve + nota firmata + domande.
+- Niente doppioni e niente sezioni lunghe: tolti «Chiamalo/Parla/Ascolta»,
+  il disegno Mac/iPhone, la tabella privacy grande, il blocco finale.
 - Mai nascondere contenuti in attesa dello scorrimento (niente effetti
   "compare quando scorri"): tutto deve essere visibile subito.
-- Font di sistema stile Apple (SF Pro sui Mac, Inter come riserva).
-  Niente Orbitron, niente font "futuristici".
-  Unica eccezione: Noto Sans Runic, solo per i simboli delle rune.
-- I font stanno nella cartella fonts/: niente Google Fonts, nessuna
-  chiamata a siti esterni (il sito parla di privacy, deve rispettarla).
-- Tono personale, non da azienda: rune, capitoli numerati, la storia
-  del nome (mitologia norrena) e la nota firmata da Riccardo.
-- Colori: bianco, nero e grigi, più UN solo accento: l'oro del vero MIMIR
-  (intro D-040). Tutte le variabili sono in cima a style.css.
-  · --gold #e8b45a: oro principale, su sfondi neri e scuri (pallino
-    «in ascolto», runa attiva, onda della voce, etichette).
-  · --gold-light #ffd98a: solo bagliori e luci (sfera, onda che parla).
-  · --gold-dark #8a6420: al posto dell'oro sulle sezioni bianche/chiare,
-    dove #e8b45a non si legge (la variabile --accent cambia da sola).
-  · Etichette: «Funziona oggi» pieno oro con testo nero (sul chiaro pieno
-    #8a6420 con testo bianco); «In sviluppo» solo contorno oro;
-    «In programma» grigio.
-  · Interruttori accesi: bianchi. Niente verde da nessuna parte.
-  · Niente fucsia, viola o acqua.
-- La demo in demo.js è simulata: mai dati personali reali,
-  solo dati inventati.
-- MIMIR è solo vocale: nella demo niente caselle di testo.
-- Niente reattore 3D: è stato tolto. Al suo posto c'è la sfera luminosa
-  fatta solo con CSS (classe orb-core in style.css). La sfera compare
-  solo in apertura (anche nei disegni di Mac e iPhone) e nella demo.
-- 7 capitoli, in quest'ordine, ognuno con la sua runa al posto del numero:
-  ᛗ Apertura · ᚨ Demo · ᛞ Una giornata · ᛟ Moduli (nome + orbita + tessere)
-  · ᛉ Privacy · ᛃ Come è fatto + Stato dei lavori (#stato) · ᚱ Nota + Domande.
-- Niente doppioni: i moduli si presentano solo con orbita e tessere.
-- Mac e iPhone disegnati come nei film: schermo quasi vuoto, sfera al
-  centro, una riga di sottotitolo. Niente fumetti da chat.
+- Stile: personale, non da Apple. Tutto su nero caldo, niente fasce
+  bianche. Titoli di misura media con carattere; le rune guidano.
+- Font: Inter (cartella fonts/), SF Pro su Mac e iPhone. Niente serif,
+  niente Orbitron o font "futuristici". Unica eccezione: Noto Sans Runic,
+  solo per i simboli delle rune.
+- Colori dell'intro dell'app (D-040), variabili in cima a style.css:
+  · sfondo nero caldo #0b0907; testo crema --cream #f3e6c8;
+  · --gold #e8b45a: oro principale (pallino «in ascolto», runa attiva,
+    onda della voce, etichette, tasti);
+  · --gold-light #ffd98a: solo bagliori e luci (sfera, onda che parla);
+  · --gold-dim #8a7350: oro spento, scritte secondarie;
+  · --bronze #5a4b33 e --bronze-dark #2a2418: bordi e linee.
+  · Etichette: «Funziona oggi» pieno oro con testo nero; «In sviluppo»
+    solo contorno oro; «In programma» oro spento tratteggiato.
+  · Interruttori accesi: bianchi. Niente verde, fucsia, viola o acqua.
+- MIMIR è solo vocale: nella demo niente caselle di testo e niente microfono.
+- Niente reattore 3D: c'è la sfera luminosa fatta con CSS (orb-core),
+  solo nell'apertura, che è anche il palco della demo.
 - Orbita dei moduli lentissima, si ferma col mouse sopra. Tessere: sul
-  computer descrizione subito visibile, su telefono si girano.
-- Su telefono c'è il menu "Capitoli" in alto.
-- Le immagini (Mac, iPhone, orbita dei moduli) sono disegnate con
-  HTML e CSS, con nomi e dati inventati.
+  computer descrizione subito visibile, su telefono due per riga,
+  solo nome + etichetta, si girano per la descrizione.
+- Su telefono c'è il menu "Capitoli" in alto. Il tasto «Prova MIMIR»
+  deve vedersi su iPhone senza scorrere (anche iPhone SE).
+
+## La demo (demo.js) = l'apertura
+- Tasto grande «Prova MIMIR». MIMIR saluta usando SOLO quello che il
+  browser sa già: buongiorno/buon pomeriggio/buonasera, giorno e ora,
+  dispositivo (iPhone, iPad, Mac, Windows, Android…), zona dal fuso
+  orario (es. Europe/Rome → «dall'Italia», altrimenti «dalle tue parti»).
+- Testo del saluto: «Buonasera. È martedì, sono le 21:40. Mi stai
+  guardando da un iPhone, dall'Italia. Io sono MIMIR. Odino diede un
+  occhio per la saggezza. A te è bastato un browser.»
+- Il saluto è SOLO sottotitolo, scritto lettera per lettera, senza voce
+  (è dinamico: non si può registrare). La voce parte dalla frase dopo:
+  «Ti faccio sentire come comincia una mattina con me.», poi un recap
+  inventato SENZA nomi di persona, poi la chiusura: «L'ora, il giorno,
+  il dispositivo e la zona li ho capiti dal tuo browser. Non sono usciti
+  da qui. Il resto era inventato.»
+- I dati del saluto si calcolano al momento: mai salvati, mai inviati
+  (nemmeno a GoatCounter).
+- Dopo il saluto si scelgono le altre scene; c'è sempre «Salta».
+- Tutto il resto della demo è simulato: mai dati personali reali.
+
+## Statistiche (GoatCounter, codice mimir-site)
+- contatore.js (nel sito, in fondo a index.html) è l'UNICA eccezione
+  alla regola «nessuna chiamata a siti esterni». Manda solo: la visita
+  (pagina, titolo, referrer) e il nome fisso degli eventi.
+- Eventi: «prova-mimir» (tasto della demo) · «scena-<nome>» (scelta di una
+  scena: saluto, recap, casa, memoria, anomalie) · «demo-completata»
+  (scena arrivata alla fine) · «segui-progetto» · «tessera-<modulo>»
+  (tessera girata, solo telefono) · «menu-capitoli».
+- Nella privacy c'è la riga: «Conto le visite con GoatCounter: niente
+  cookie, nessun dato personale.»
+- Font, immagini e tutto il resto restano nel sito: nessun'altra
+  chiamata esterna.
 
 ## Onestà: "vendere senza vendere"
 - Al presente solo ciò che funziona già. Il resto si scrive "in arrivo".
-- Ogni funzione descritta (giornata, "Cosa sa fare", FAQ, tessere) ha
+- Ogni funzione descritta (giornata, privacy, FAQ, tessere, come è fatto) ha
   un'etichetta piccola: "Funziona oggi", "In sviluppo" o "In programma".
   Prima di assegnarne una nuova, chiedi a Riccardo in chat.
 - In apertura c'è l'etichetta "Anteprima · in sviluppo".
 - Titolo dell'apertura (scelto da Riccardo): «Vive sul mio Mac. Sta imparando
-  a parlare.» La sezione sul nome finisce con «Gli ho dato un Mac.»
-- Il tasto finale è "Segui il progetto" (niente "Compra" o "Scarica"):
-  porta all'ancora #stato, dove ci sarà la sezione "Stato dei lavori".
+  a parlare.» Sottotitolo: «Ragiona in italiano e tiene i miei dati in casa.
+  Presto ricorderà quello che conta. Lo sto costruendo un pezzo alla volta.»
+  La storia del nome finisce con «Gli ho dato un Mac.»
+- Il tasto "Segui il progetto" (in alto, niente "Compra" o "Scarica")
+  porta all'ancora #stato, la sezione "Stato dei lavori".
 - Niente link a LinkedIn, da nessuna parte del sito.
 - Il link al repository GitHub sta solo in fondo alla pagina, in piccolo.
 - Se un riquadro mostra più funzioni con stati diversi, si usa
