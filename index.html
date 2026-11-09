@@ -98,6 +98,7 @@
         </div>
         <div class="stage-foot">
           <label class="switch"><input type="checkbox" id="voice-on" checked><i></i> Voce</label>
+          <p class="voice-note" id="voice-note" hidden>Il tuo browser non ha una voce italiana</p>
           <p class="note">Simulazione con dati inventati · niente microfono · nulla esce dal tuo browser</p>
         </div>
       </div>
@@ -150,19 +151,17 @@
 
         </div>
 
-        <p class="cards-hint">Tocca una tessera per girarla.</p>
+        <p class="cards-hint">Tocca o clicca una tessera per girarla.</p>
         <div class="modules">
           <button class="mod" type="button" aria-pressed="false" aria-label="MUNIN: gira la tessera" data-modulo="munin">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">01</span><span class="mod-rune rune">ᛗ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᛗ</span>
-                <b>MUNIN</b><span class="mod-sub">Memoria personale</span>
-                <span class="mod-foot"><span class="tag tag-s">In sviluppo</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᛗ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>MUNIN</b>
+                <span class="tag tag-s">In sviluppo</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">01</span><span class="mod-rune rune">ᛗ</span></span>
-                <b>MUNIN</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Ricorderà per te abitudini, preferenze e dove hai messo le cose. Le memorie private resteranno sotto chiave e si apriranno solo se lo chiedi tu.</span>
                 <span class="mod-myth">Nel mito, Muninn è il corvo della memoria di Odino.</span>
               </span>
@@ -171,14 +170,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="KVASIR: gira la tessera" data-modulo="kvasir">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">02</span><span class="mod-rune rune">ᚲ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᚲ</span>
-                <b>KVASIR</b><span class="mod-sub">Conoscenza del mondo</span>
-                <span class="mod-foot"><span class="tag tag-s">In sviluppo</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᚲ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>KVASIR</b>
+                <span class="tag tag-s">In sviluppo</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">02</span><span class="mod-rune rune">ᚲ</span></span>
-                <b>KVASIR</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Risponderà alle domande sul mondo: fatti, spiegazioni, definizioni. Sarà la parte di MIMIR che sa le cose, non quella che ricorda di te.</span>
                 <span class="mod-myth">Nel mito, Kvasir è l'essere più saggio di tutti.</span>
               </span>
@@ -187,14 +184,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="SAGA: gira la tessera" data-modulo="saga">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">03</span><span class="mod-rune rune">ᛊ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᛊ</span>
-                <b>SAGA</b><span class="mod-sub">Ricerca</span>
-                <span class="mod-foot"><span class="tag tag-p">In programma</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᛊ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>SAGA</b>
+                <span class="tag tag-p">In programma</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">03</span><span class="mod-rune rune">ᛊ</span></span>
-                <b>SAGA</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Quando non basta sapere, cercherà. Leggerà più fonti, le confronterà e ti riassumerà la risposta in poche frasi.</span>
                 <span class="mod-myth">Nel mito, Sága è la dea che ogni giorno beve con Odino.</span>
               </span>
@@ -203,14 +198,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="FORGE: gira la tessera" data-modulo="forge">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">04</span><span class="mod-rune rune">ᚠ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᚠ</span>
-                <b>FORGE</b><span class="mod-sub">Sviluppo e auto-riparazione</span>
-                <span class="mod-foot"><span class="tag tag-p">In programma</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᚠ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>FORGE</b>
+                <span class="tag tag-p">In programma</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">04</span><span class="mod-rune rune">ᚠ</span></span>
-                <b>FORGE</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Sarà l'officina di MIMIR: troverà i guasti e li riparerà, anche di notte. Se serve il tuo permesso, te lo chiederà con una soluzione già pronta.</span>
                 <span class="mod-myth">La forgia: dove si costruisce e si aggiusta.</span>
               </span>
@@ -219,14 +212,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="LAB: gira la tessera" data-modulo="lab">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">05</span><span class="mod-rune rune">ᛚ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᛚ</span>
-                <b>LAB</b><span class="mod-sub">Ambiente isolato per i test</span>
-                <span class="mod-foot"><span class="tag tag-p">In programma</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᛚ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>LAB</b>
+                <span class="tag tag-p">In programma</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">05</span><span class="mod-rune rune">ᛚ</span></span>
-                <b>LAB</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Una stanza chiusa per gli esperimenti. Ogni modifica verrà provata qui, lontano dal resto, prima di toccare il sistema vero.</span>
                 <span class="mod-myth">Prima si prova, poi si cambia.</span>
               </span>
@@ -235,14 +226,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="GALAXY: gira la tessera" data-modulo="galaxy">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">06</span><span class="mod-rune rune">ᚷ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᚷ</span>
-                <b>GALAXY</b><span class="mod-sub">Interfaccia visiva</span>
-                <span class="mod-foot"><span class="tag tag-s">In sviluppo</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᚷ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>GALAXY</b>
+                <span class="tag tag-s">In sviluppo</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">06</span><span class="mod-rune rune">ᚷ</span></span>
-                <b>GALAXY</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Il volto di MIMIR: la sfera, le schede e le risposte che vedrai sul Mac mentre lui ti parla.</span>
                 <span class="mod-myth">Tutto quello che vedi, in un solo posto.</span>
               </span>
@@ -251,14 +240,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="VAULT: gira la tessera" data-modulo="vault">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">07</span><span class="mod-rune rune">ᚹ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᚹ</span>
-                <b>VAULT</b><span class="mod-sub">Caveau delle credenziali</span>
-                <span class="mod-foot"><span class="tag tag-p">In programma</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᚹ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>VAULT</b>
+                <span class="tag tag-p">In programma</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">07</span><span class="mod-rune rune">ᚹ</span></span>
-                <b>VAULT</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Password e chiavi vivranno qui, separate da tutto il resto. Nemmeno i moduli di sviluppo potranno aprirlo.</span>
                 <span class="mod-myth">La cassaforte: chiusa per tutti.</span>
               </span>
@@ -267,14 +254,12 @@
           <button class="mod" type="button" aria-pressed="false" aria-label="BLACK BOX: gira la tessera" data-modulo="black-box">
             <span class="mod-inner">
               <span class="mod-face mod-front">
-                <span class="mod-top"><span class="mod-n">08</span><span class="mod-rune rune">ᛒ</span></span>
-                <span class="mod-mark rune" aria-hidden="true">ᛒ</span>
-                <b>BLACK BOX</b><span class="mod-sub">Registro delle azioni, non cancellabile</span>
-                <span class="mod-foot"><span class="tag tag-p">In programma</span><span class="mod-hint">Scopri ↻</span></span>
+                <span class="mod-top"><span class="mod-rune rune">ᛒ</span><span class="mod-flip" aria-hidden="true">↻</span></span>
+                <b>BLACK BOX</b>
+                <span class="tag tag-p">In programma</span>
               </span>
               <span class="mod-face mod-back">
-                <span class="mod-top"><span class="mod-n">08</span><span class="mod-rune rune">ᛒ</span></span>
-                <b>BLACK BOX</b>
+                <span class="mod-flip" aria-hidden="true">↻</span>
                 <span class="mod-desc">Ogni azione di MIMIR verrà annotata qui, e nessuno potrà cancellarla. Saprai sempre cosa ha fatto, e quando.</span>
                 <span class="mod-myth">Come la scatola nera di un aereo.</span>
               </span>

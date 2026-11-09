@@ -48,10 +48,14 @@
 - MIMIR è solo vocale: nella demo niente caselle di testo e niente microfono.
 - Niente reattore 3D: c'è la sfera luminosa fatta con CSS (orb-core),
   solo nell'apertura, che è anche il palco della demo.
-- Orbita dei moduli lentissima, si ferma col mouse sopra. Tessere: sul
-  computer descrizione subito visibile e SENZA le note mitologiche (la
-  storia del nome è già accanto all'orbita); su telefono due per riga,
-  solo nome + etichetta, e sul retro descrizione + nota mitologica.
+- Orbita dei moduli lentissima, si ferma col mouse sopra.
+- Tessere dei moduli: stesso funzionamento su computer e telefono.
+  Davanti solo runa, nome ed etichetta; dietro descrizione e nota
+  mitologica. Clic, tocco, Invio o Spazio = la tessera si gira; una alla
+  volta (aprendone una, l'altra si richiude). Indizi: «↻» nell'angolo,
+  inclinazione 3D col mouse sopra (solo computer), e la prima volta che
+  arrivano sullo schermo la prima fa da sola mezzo giro e torna (una
+  volta sola, mai con le animazioni disattivate).
 - Su telefono c'è il menu "Capitoli" in alto. Il tasto «Prova MIMIR»
   deve vedersi su iPhone senza scorrere (anche iPhone SE).
 
@@ -81,6 +85,9 @@
   Giuseppe) → «Premium»/«Enhanced»/«Avanzata» (Safari: Luca) → Google
   (Chrome) → qualsiasi italiana. A parità, voci maschili. Si aspetta
   l'evento voiceschanged. Velocità 1.0 e tono 1.0 (mai abbassarlo).
+- Se il browser non ha nessuna voce italiana: niente voce predefinita.
+  Demo solo con sottotitoli, interruttore «Voce» spento e la nota
+  «Il tuo browser non ha una voce italiana».
 - Tutto il resto della demo è simulato: mai dati personali reali.
 
 ## Statistiche (GoatCounter, codice mimir-site)
@@ -90,7 +97,7 @@
 - Eventi: «prova-mimir» (tasto della demo) · «scena-<nome>» (scelta di una
   scena: saluto, recap, casa, memoria, anomalie) · «demo-completata»
   (scena arrivata alla fine) · «segui-progetto» · «tessera-<modulo>»
-  (tessera girata, solo telefono) · «menu-capitoli».
+  (tessera girata, su computer e telefono) · «menu-capitoli».
 - Nella privacy c'è la riga: «Conto le visite con GoatCounter: niente
   cookie, nessun dato personale.»
 - Font, immagini e tutto il resto restano nel sito: nessun'altra

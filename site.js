@@ -9,17 +9,37 @@ function contaEvento(nome) {
   if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: nome, title: nome, event: true });
 }
 
-/* ---------- tessere dei moduli: su telefono toccale e si girano ---------- */
-/* (sul computer la descrizione è già visibile, quindi il clic non fa niente) */
-const telefono = window.matchMedia("(max-width: 700px)");
-document.querySelectorAll(".mod").forEach(card => {
+/* ---------- tessere dei moduli: clic, tocco, Invio o Spazio = la tessera si gira ---------- */
+/* Si gira una tessera alla volta: aprendone una, quella aperta prima si richiude. */
+const tessere = [...document.querySelectorAll(".mod")];
+tessere.forEach(card => {
   card.addEventListener("click", () => {
-    if (!telefono.matches) return;
-    const open = card.classList.toggle("open");
-    card.setAttribute("aria-pressed", open ? "true" : "false");
-    if (open) contaEvento("tessera-" + card.dataset.modulo);
+    const apri = !card.classList.contains("open");
+    tessere.forEach(t => { t.classList.remove("open", "peek"); t.setAttribute("aria-pressed", "false"); });
+    if (apri) {
+      card.classList.add("open");
+      card.setAttribute("aria-pressed", "true");
+      contaEvento("tessera-" + card.dataset.modulo);
+    }
   });
 });
+
+/* La prima volta che le tessere arrivano sullo schermo, la prima fa da sola mezzo giro
+   e torna indietro: una volta sola, e mai se hai disattivato le animazioni. */
+const senzaAnimazioni = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (tessere.length && !senzaAnimazioni && "IntersectionObserver" in window) {
+  const osserva = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    osserva.disconnect();
+    const prima = tessere[0];
+    setTimeout(() => {
+      if (tessere.some(t => t.classList.contains("open"))) return; // l'utente ne ha già girata una
+      prima.classList.add("peek");
+      prima.addEventListener("animationend", () => prima.classList.remove("peek"), { once: true });
+    }, 500);
+  }, { threshold: 0.6 });
+  osserva.observe(tessere[0]);
+}
 
 /* ---------- menu dei capitoli (solo telefono) ---------- */
 const menuBtn = document.querySelector(".menu-btn");

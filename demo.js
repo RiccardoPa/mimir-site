@@ -175,12 +175,24 @@ const vociPronte = !("speechSynthesis" in window) ? Promise.resolve() : new Prom
   speechSynthesis.addEventListener("voiceschanged", fatto, { once: true });
   setTimeout(fatto, 1500);
 });
-if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", scegliVoce);
+if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", () => { scegliVoce(); aggiornaVoce(); });
+
+// se il browser non ha nessuna voce italiana: niente voce predefinita (sarebbe inglese o robotica),
+// demo solo con sottotitoli, interruttore «Voce» spento e una nota piccola
+function aggiornaVoce() {
+  const nota = document.getElementById("voice-note");
+  const manca = !voceScelta;
+  voiceOn.disabled = manca;
+  if (manca) voiceOn.checked = false;
+  if (nota) nota.hidden = !manca;
+}
+vociPronte.then(aggiornaVoce);
 
 function speak(text) {
   return new Promise(async resolve => {
     if (!voiceOn.checked || !("speechSynthesis" in window)) return setTimeout(resolve, 900 + text.length * 45);
     await vociPronte;
+    if (!voceScelta) return setTimeout(resolve, 900 + text.length * 45); // nessuna voce italiana: solo sottotitoli
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "it-IT";
     if (voceScelta) u.voice = voceScelta;
@@ -227,7 +239,7 @@ async function runLines(lines, id) {
       showLine("user", step.text);
       await wait(1100 + step.text.length * 30);
     } else {
-      const conVoce = voiceOn.checked && "speechSynthesis" in window;
+      const conVoce = voiceOn.checked && "speechSynthesis" in window && !!voceScelta;
       setState(conVoce ? "speaking" : null); level(conVoce ? 1 : 0.15); animateWave(conVoce);
       showLine("mimir", step.text);
       await speak(step.text);
