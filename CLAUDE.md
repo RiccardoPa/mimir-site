@@ -76,6 +76,11 @@
 - I dati del saluto si calcolano al momento: mai salvati, mai inviati
   (nemmeno a GoatCounter).
 - Dopo il saluto si scelgono le altre scene; c'è sempre «Salta».
+- Voce del browser (finché non arrivano gli audio veri): la voce italiana
+  migliore disponibile, in quest'ordine: «Natural»/«Online» (Edge: Diego,
+  Giuseppe) → «Premium»/«Enhanced»/«Avanzata» (Safari: Luca) → Google
+  (Chrome) → qualsiasi italiana. A parità, voci maschili. Si aspetta
+  l'evento voiceschanged. Velocità 1.0 e tono 1.0 (mai abbassarlo).
 - Tutto il resto della demo è simulato: mai dati personali reali.
 
 ## Statistiche (GoatCounter, codice mimir-site)

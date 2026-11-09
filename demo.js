@@ -148,15 +148,43 @@ function level(v) { document.documentElement.style.setProperty("--level", v); }
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
 // voce del browser (gratuita, integrata). Nella Fase 3 arriveranno gli audio veri.
+// Scegliamo la voce italiana migliore disponibile, con questa priorità:
+//   4 = «Natural» o «Online» nel nome (Edge: Diego, Giuseppe)
+//   3 = «Premium», «Enhanced» o «Avanzata» (Safari, es. Luca)
+//   2 = voce italiana di Google (Chrome)
+//   1 = qualsiasi altra voce italiana
+// A parità di livello vincono le voci maschili (Diego, Giuseppe, Luca, Cosimo).
+let voceScelta = null;
+
+function punteggio(v) {
+  const n = v.name || "";
+  let p = /natural|online/i.test(n) ? 4 : /premium|enhanced|avanzat/i.test(n) ? 3 : /google/i.test(n) ? 2 : 1;
+  if (/diego|giuseppe|luca|cosimo|\bmale\b|maschil/i.test(n)) p += 0.5; // preferenza per le voci maschili
+  if (/^it[-_]IT/i.test(v.lang)) p += 0.1;                               // italiano d'Italia prima di it-CH
+  return p;
+}
+function scegliVoce() {
+  const italiane = speechSynthesis.getVoices().filter(v => /^it([-_]|$)/i.test(v.lang));
+  italiane.sort((a, b) => punteggio(b) - punteggio(a));
+  voceScelta = italiane[0] || null;
+}
+// le voci a volte arrivano in ritardo: aspettiamo l'evento voiceschanged (al massimo 1,5 secondi)
+const vociPronte = !("speechSynthesis" in window) ? Promise.resolve() : new Promise(resolve => {
+  if (speechSynthesis.getVoices().length) { scegliVoce(); return resolve(); }
+  const fatto = () => { scegliVoce(); resolve(); };
+  speechSynthesis.addEventListener("voiceschanged", fatto, { once: true });
+  setTimeout(fatto, 1500);
+});
+if ("speechSynthesis" in window) speechSynthesis.addEventListener("voiceschanged", scegliVoce);
+
 function speak(text) {
-  return new Promise(resolve => {
+  return new Promise(async resolve => {
     if (!voiceOn.checked || !("speechSynthesis" in window)) return setTimeout(resolve, 900 + text.length * 45);
+    await vociPronte;
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "it-IT";
-    const voci = speechSynthesis.getVoices();
-    const it = voci.find(v => v.lang.startsWith("it") && /male|luca|diego|cosimo/i.test(v.name)) || voci.find(v => v.lang.startsWith("it"));
-    if (it) u.voice = it;
-    u.rate = 1.02; u.pitch = 0.85;
+    if (voceScelta) u.voice = voceScelta;
+    u.rate = 1.0; u.pitch = 1.0; // tono naturale: abbassarlo rende la voce più robotica
     u.onend = resolve; u.onerror = resolve;
     speechSynthesis.speak(u);
   });
