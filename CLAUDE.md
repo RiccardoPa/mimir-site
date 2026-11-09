@@ -23,7 +23,9 @@
 - Sito statico per GitHub Pages: solo HTML, CSS e JavaScript.
   Niente build, niente npm, niente framework. Percorsi relativi.
 - Stile: ispirato al sito di Apple. Bianco e nero, tanto spazio,
-  titoli grandi, dettagli curati, animazioni morbide allo scorrimento.
+  titoli grandi, dettagli curati.
+- Mai nascondere contenuti in attesa dello scorrimento (niente effetti
+  "compare quando scorri"): tutto deve essere visibile subito.
 - Font di sistema stile Apple (SF Pro sui Mac, Inter come riserva).
   Niente Orbitron, niente font "futuristici".
 - Colori: solo bianco, nero e grigi (variabili in cima a style.css).
