@@ -39,7 +39,17 @@
   solo dati inventati.
 - MIMIR è solo vocale: nella demo niente caselle di testo.
 - Niente reattore 3D: è stato tolto. Al suo posto c'è la sfera luminosa
-  fatta solo con CSS (classe orb-core in style.css).
+  fatta solo con CSS (classe orb-core in style.css). La sfera compare
+  solo in apertura (anche nei disegni di Mac e iPhone) e nella demo.
+- 7 capitoli, in quest'ordine, ognuno con la sua runa al posto del numero:
+  ᛗ Apertura · ᚨ Demo · ᛞ Una giornata · ᛟ Moduli (nome + orbita + tessere)
+  · ᛉ Privacy · ᛃ Come è fatto + Stato dei lavori (#stato) · ᚱ Nota + Domande.
+- Niente doppioni: i moduli si presentano solo con orbita e tessere.
+- Mac e iPhone disegnati come nei film: schermo quasi vuoto, sfera al
+  centro, una riga di sottotitolo. Niente fumetti da chat.
+- Orbita dei moduli lentissima, si ferma col mouse sopra. Tessere: sul
+  computer descrizione subito visibile, su telefono si girano.
+- Su telefono c'è il menu "Capitoli" in alto.
 - Le immagini (Mac, iPhone, orbita dei moduli) sono disegnate con
   HTML e CSS, con nomi e dati inventati.
 
