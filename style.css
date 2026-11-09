@@ -325,12 +325,13 @@ body::after {
   .mod-face { display: flex; flex-direction: column; gap: 6px; }
   .mod-back { flex: 1; }
   .mod-back .mod-top, .mod-back b { display: none; }
+  .mod-myth { display: none; } /* sul computer la storia del nome c'è già accanto all'orbita */
 }
 /* su telefono: tessera da girare, davanti solo nome + etichetta */
 @media (max-width: 700px) {
   .cards-hint { display: block; }
   .modules { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .mod { height: 158px; cursor: pointer; perspective: 1200px; }
+  .mod { height: 204px; cursor: pointer; perspective: 1200px; }
   .mod-inner { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .9s cubic-bezier(.3, 1.3, .45, 1); }
   .mod.open .mod-inner { transform: rotateY(180deg); }
   .mod-face {
@@ -339,7 +340,8 @@ body::after {
   }
   .mod-front { background: var(--bg-raise); border: 1px solid var(--bronze-dark); }
   .mod-front .mod-top { justify-content: flex-end; margin-bottom: auto; }
-  .mod-front .mod-n, .mod-sub, .mod-back .mod-top, .mod-back b, .mod-myth { display: none; }
+  .mod-front .mod-n, .mod-sub, .mod-back .mod-top, .mod-back b { display: none; }
+  .mod-back .mod-myth { margin-top: 8px; padding-top: 7px; border-top-color: rgba(26, 21, 14, .2); color: #5a4b33; font-size: 11px; line-height: 1.3; }
   .mod-back { transform: rotateY(180deg); background: var(--cream); justify-content: center; }
   .mod-back .mod-desc { color: #1a150e; font-size: 12px; line-height: 1.36; }
   .mod b { font-size: 16px; }
@@ -440,6 +442,11 @@ body::after {
   .two-col { grid-template-columns: 1fr; gap: 0; }
   .node { transform: rotate(var(--a)) translateY(-38cqw) rotate(calc(-1 * var(--a))); }
   .node span { left: -40px; top: -13px; width: 80px; height: 26px; font-size: 9px; letter-spacing: .06em; }
+}
+/* telefoni stretti: testo del retro delle tessere un filo più piccolo, così sta dentro */
+@media (max-width: 380px) {
+  .mod-back .mod-desc { font-size: 11.5px; line-height: 1.33; }
+  .mod-face { padding: 12px; }
 }
 /* schermi bassi (iPhone piccoli): sfera più piccola, così il tasto si vede subito */
 @media (max-height: 700px) {

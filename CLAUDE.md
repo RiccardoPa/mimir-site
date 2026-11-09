@@ -49,8 +49,9 @@
 - Niente reattore 3D: c'è la sfera luminosa fatta con CSS (orb-core),
   solo nell'apertura, che è anche il palco della demo.
 - Orbita dei moduli lentissima, si ferma col mouse sopra. Tessere: sul
-  computer descrizione subito visibile, su telefono due per riga,
-  solo nome + etichetta, si girano per la descrizione.
+  computer descrizione subito visibile e SENZA le note mitologiche (la
+  storia del nome è già accanto all'orbita); su telefono due per riga,
+  solo nome + etichetta, e sul retro descrizione + nota mitologica.
 - Su telefono c'è il menu "Capitoli" in alto. Il tasto «Prova MIMIR»
   deve vedersi su iPhone senza scorrere (anche iPhone SE).
 
@@ -62,6 +63,10 @@
 - Testo del saluto: «Buonasera. È martedì, sono le 21:40. Mi stai
   guardando da un iPhone, dall'Italia. Io sono MIMIR. Odino diede un
   occhio per la saggezza. A te è bastato un browser.»
+- L'ora del saluto è sempre in cifre: «sono le 12:19», «sono le 00:05»
+  (mai «è mezzogiorno», «è mezzanotte» o «è l'una»).
+- L'onda si muove SOLO quando c'è la voce: ferma durante il saluto
+  scritto, quando parli tu o se la voce è spenta.
 - Il saluto è SOLO sottotitolo, scritto lettera per lettera, senza voce
   (è dinamico: non si può registrare). La voce parte dalla frase dopo:
   «Ti faccio sentire come comincia una mattina con me.», poi un recap

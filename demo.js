@@ -60,12 +60,8 @@ function saluto() {
   const h = now.getHours(), m = now.getMinutes();
   const buon = h >= 5 && h < 12 ? "Buongiorno" : h >= 12 && h < 18 ? "Buon pomeriggio" : "Buonasera";
   const giorno = now.toLocaleDateString("it-IT", { weekday: "long" });
-  const mm = String(m).padStart(2, "0");
-  const ora =
-    h === 0 ? "è mezzanotte" + (m ? " e " + m : "") :
-    h === 1 ? "è l'una" + (m ? " e " + m : "") :
-    h === 12 ? "è mezzogiorno" + (m ? " e " + m : "") :
-    "sono le " + h + ":" + mm;
+  // l'ora sempre in cifre: «sono le 12:19», «sono le 00:05»
+  const ora = "sono le " + (h === 0 ? "00" : h) + ":" + String(m).padStart(2, "0");
   return `${buon}. È ${giorno}, ${ora}. Mi stai guardando da ${dispositivo()}, ${zona()}. ` +
          `Io sono MIMIR. Odino diede un occhio per la saggezza. A te è bastato un browser.`;
 }
@@ -181,7 +177,8 @@ async function typeLine(text, id) {
   subText.textContent = "";
   const caret = document.createElement("span");
   caret.className = "caret";
-  setState("speaking"); level(0.3); animateWave(true);
+  // solo sottotitolo, senza voce: l'onda resta ferma, la sfera ha solo un battito leggero
+  setState(null); animateWave(false); level(0.12);
   for (let i = 0; i < text.length; i++) {
     if (id !== runId) return;
     subText.textContent = text.slice(0, i + 1);
@@ -189,7 +186,7 @@ async function typeLine(text, id) {
     await wait(/[.,]/.test(text[i]) ? 220 : 32);
   }
   caret.remove();
-  animateWave(false); level(0.1); setState(null);
+  level(0); setState(null);
   await wait(900);
 }
 
@@ -198,12 +195,12 @@ async function runLines(lines, id) {
     if (id !== runId) return false;
     if (step.card) chip.textContent = step.card;
     if (step.who === "user") {
-      setState("listening"); level(0.3); animateWave(true);
+      setState("listening"); level(0.1); animateWave(false); // parli tu: niente voce, onda ferma
       showLine("user", step.text);
       await wait(1100 + step.text.length * 30);
-      animateWave(false);
     } else {
-      setState("speaking"); level(1); animateWave(true);
+      const conVoce = voiceOn.checked && "speechSynthesis" in window;
+      setState(conVoce ? "speaking" : null); level(conVoce ? 1 : 0.15); animateWave(conVoce);
       showLine("mimir", step.text);
       await speak(step.text);
       animateWave(false); level(0.15);
