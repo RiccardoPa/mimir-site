@@ -24,3 +24,32 @@ if (menuBtn && menu) {
   menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
   document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 }
+
+/* ---------- runa attiva: si accende in oro la runa del capitolo che stai guardando ---------- */
+(() => {
+  const capitoli = [
+    ["top", "prodotto"], ["demo", "demo"], ["giornata", "giornata"], ["nome", "nome"],
+    ["privacy", "privacy"], ["come", "come"], ["nota", "nota"]
+  ].map(([link, id]) => {
+    const section = document.getElementById(id);
+    return {
+      section,
+      rune: section && section.querySelector(".ch-rune"),
+      link: document.querySelector('#menu-mobile a[href="#' + link + '"]')
+    };
+  }).filter(c => c.section);
+
+  let pending = false;
+  function update() {
+    pending = false;
+    const line = window.innerHeight * 0.4;
+    let current = 0; // in cima alla pagina: Apertura
+    capitoli.forEach((c, i) => { if (c.section.getBoundingClientRect().top <= line) current = i; });
+    capitoli.forEach((c, i) => {
+      if (c.rune) c.rune.classList.toggle("active", i === current);
+      if (c.link) c.link.classList.toggle("active", i === current);
+    });
+  }
+  window.addEventListener("scroll", () => { if (!pending) { pending = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();

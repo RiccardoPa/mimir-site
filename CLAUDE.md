@@ -33,8 +33,18 @@
   chiamata a siti esterni (il sito parla di privacy, deve rispettarla).
 - Tono personale, non da azienda: rune, capitoli numerati, la storia
   del nome (mitologia norrena) e la nota firmata da Riccardo.
-- Colori: solo bianco, nero e grigi (variabili in cima a style.css).
-  Niente fucsia, viola o acqua.
+- Colori: bianco, nero e grigi, più UN solo accento: l'oro del vero MIMIR
+  (intro D-040). Tutte le variabili sono in cima a style.css.
+  · --gold #e8b45a: oro principale, su sfondi neri e scuri (pallino
+    «in ascolto», runa attiva, onda della voce, etichette).
+  · --gold-light #ffd98a: solo bagliori e luci (sfera, onda che parla).
+  · --gold-dark #8a6420: al posto dell'oro sulle sezioni bianche/chiare,
+    dove #e8b45a non si legge (la variabile --accent cambia da sola).
+  · Etichette: «Funziona oggi» pieno oro con testo nero (sul chiaro pieno
+    #8a6420 con testo bianco); «In sviluppo» solo contorno oro;
+    «In programma» grigio.
+  · Interruttori accesi: bianchi. Niente verde da nessuna parte.
+  · Niente fucsia, viola o acqua.
 - La demo in demo.js è simulata: mai dati personali reali,
   solo dati inventati.
 - MIMIR è solo vocale: nella demo niente caselle di testo.
