@@ -549,6 +549,37 @@ body::after {
 .info p { font-size: 17px; color: var(--white); font-weight: 500; }
 .note { margin-top: 22px; color: var(--gray-dark); font-size: 13px; text-align: center; }
 
+/* ============ Titoletti dentro un capitolo ============ */
+.sub-statement { font-size: clamp(26px, 3.4vw, 40px); line-height: 1.12; letter-spacing: -0.03em; margin: 90px 0 18px; max-width: 760px; }
+#demo .steps { margin-top: 40px; }
+
+/* ============ Come è fatto ============ */
+.how { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.how article {
+  background: #0d0d0f; border: 1px solid var(--line-dark); border-radius: 22px; padding: 26px 24px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.how-label { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-dark); }
+.how article > p:last-child { color: #d2d2d7; font-size: 16px; }
+.how b { color: #fff; font-weight: 600; }
+
+/* ============ Stato dei lavori (linea di tappe) ============ */
+.roadmap { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 30px; }
+.roadmap > li { position: relative; padding: 34px 28px 0 0; border-top: 1px solid var(--line-dark); }
+.road-head { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-dark); margin-bottom: 16px; }
+.road-head i { position: absolute; top: -8px; left: 0; width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid #fff; background: #000; }
+.road-head { padding-left: 0; }
+.done .road-head i { background: #fff; }
+.now .road-head i { background: linear-gradient(90deg, #fff 50%, #000 50%); box-shadow: 0 0 0 5px rgba(255,255,255,.12); }
+.next .road-head i { border-style: dashed; border-color: rgba(255,255,255,.6); }
+.done .road-head { color: #fff; }
+.roadmap ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.roadmap ul li { font-size: 18px; font-weight: 500; letter-spacing: -0.01em; }
+.done ul li { color: #fff; }
+.done ul li::before { content: "✓  "; color: var(--gray-dark); }
+.now ul li { color: #d2d2d7; }
+.next ul li { color: var(--gray-dark); }
+
 /* ============ Privacy ============ */
 .compare { margin-bottom: 110px; }
 .compare-row { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line-light); align-items: center; }
@@ -589,6 +620,7 @@ body::after {
 
 /* ============ Telefono e tablet ============ */
 @media (max-width: 900px) {
+  .how { grid-template-columns: 1fr 1fr; }
   .timeline li { grid-template-columns: 110px 1fr; }
   .timeline .mini { grid-column: 2; }
   .bento { grid-template-columns: 1fr 1fr; }
@@ -623,6 +655,11 @@ body::after {
   .compare-row b { font-size: 15px; }
   .compare-row.head b { font-size: 11px; }
   .pillars { grid-template-columns: 1fr; gap: 36px; }
+  .how { grid-template-columns: 1fr; }
+  .roadmap { grid-template-columns: 1fr; border-left: 1px solid var(--line-dark); margin-left: 7px; }
+  .roadmap > li { border-top: 0; padding: 0 0 34px 26px; }
+  .road-head i { top: 2px; left: -8px; }
+  .sub-statement { margin-top: 70px; }
   .demo { padding: 18px; }
   .demo-controls { flex-direction: column; align-items: flex-start; }
   .closing { padding: 140px 0; }
