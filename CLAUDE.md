@@ -31,4 +31,7 @@
 - La demo in demo.js è simulata: mai dati personali reali,
   solo dati inventati.
 - MIMIR è solo vocale: nella demo niente caselle di testo.
-- Il reattore 3D (reactor.js) per ora non si tocca: lo rifaremo dopo.
+- Niente reattore 3D: è stato tolto. Al suo posto c'è la sfera luminosa
+  fatta solo con CSS (classe orb-core in style.css).
+- Le immagini (Mac, iPhone, orbita dei moduli) sono disegnate con
+  HTML e CSS, con nomi e dati inventati.

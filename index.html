@@ -3,128 +3,298 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MIMIR — Assistente AI personale, locale, vocale</title>
+  <title>MIMIR — L'assistente che ti conosce. E non lo dice a nessuno.</title>
   <meta name="description" content="MIMIR è un assistente AI personale che vive sul tuo Mac: parla italiano, ricorda, agisce. Locale, vocale, privato.">
   <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js");</script>
-  <script type="importmap">
-    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
-  </script>
 </head>
 <body>
-  <!-- Reattore: canvas 3D (three.js) + versione CSS di riserva -->
-  <div id="reactor-wrap" aria-hidden="true">
-    <canvas id="reactor"></canvas>
-    <div class="reactor-fallback"><span></span><span></span><span></span></div>
-  </div>
 
   <!-- ============ BARRA IN ALTO ============ -->
   <header class="nav">
     <div class="nav-inner">
       <a href="#top" class="logo">MIMIR</a>
       <nav>
-        <a href="#cose">Panoramica</a>
-        <a href="#voce">Voce</a>
+        <a href="#prodotto">Prodotto</a>
+        <a href="#giornata">Giornata</a>
         <a href="#moduli">Moduli</a>
-        <a href="#demo">Demo</a>
         <a href="#privacy">Privacy</a>
       </nav>
+      <a href="#demo" class="nav-cta">Demo</a>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- ============ HERO (nero) ============ -->
-    <section class="hero dark">
-      <div class="hero-top">
-        <p class="eyebrow reveal">Assistente AI personale</p>
-        <h1 class="reveal">MIMIR</h1>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="spotlight"></div>
+        <div class="stars"></div>
+        <div class="floor"></div>
       </div>
+
+      <div class="hero-text">
+        <p class="eyebrow reveal">Assistente AI personale · Locale · Vocale</p>
+        <h1 class="reveal">Il tuo secondo cervello.<br><span class="shine">Ha imparato a parlare.</span></h1>
+      </div>
+
+      <div class="orb-stage reveal" aria-hidden="true">
+        <div class="orb">
+          <div class="orb-ring r1"></div>
+          <div class="orb-ring r2"></div>
+          <div class="orb-ring r3"><i></i></div>
+          <div class="orb-core"><div class="orb-sheen"></div></div>
+        </div>
+        <div class="orb-reflection"></div>
+        <p class="orb-caption"><span class="live-dot"></span> «Ehi Mimir»</p>
+      </div>
+
       <div class="hero-bottom">
-        <p class="hero-sub reveal">Ti ascolta. Ricorda. Agisce.<br>Sul tuo computer, non nel cloud di qualcun altro.</p>
+        <p class="hero-sub reveal">MIMIR vive sul tuo Mac, ti risponde a voce e ricorda quello che conta.<br class="br-desk"> Nessun abbonamento obbligatorio. Nessun cloud di qualcun altro.</p>
         <div class="hero-cta reveal">
-          <a href="#demo" class="btn light">Guarda la demo</a>
-          <a href="#cose" class="link">Scopri di più <span aria-hidden="true">›</span></a>
-        </div>
-        <p class="hero-foot reveal">Si attiva con la voce: <em>«Ehi Mimir»</em></p>
-      </div>
-    </section>
-
-    <!-- ============ COS'È (bianco) ============ -->
-    <section id="cose" class="band white">
-      <div class="wrap">
-        <p class="eyebrow reveal">Panoramica</p>
-        <h2 class="statement reveal">Un maggiordomo digitale.<br><span class="soft">Che parla italiano, ricorda quello che conta e coordina una squadra di agenti.</span></h2>
-
-        <div class="bento">
-          <article class="tile tall reveal">
-            <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 22 24 9l16 13v17a2 2 0 0 1-2 2H28V30h-8v11H10a2 2 0 0 1-2-2Z"/></svg>
-            <p class="tile-label">Locale</p>
-            <h3>Il cervello vive sul tuo Mac.</h3>
-            <p>Il modello AI gira sul tuo computer. Funziona anche senza servizi esterni e senza abbonamenti: le AI in cloud sono un'opzione, non una dipendenza.</p>
-            <div class="big-figure">0<small>abbonamenti obbligatori</small></div>
-          </article>
-
-          <article class="tile dark-tile reveal">
-            <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24h3M15 17v14M21 12v24M27 18v12M33 14v20M39 21v6"/></svg>
-            <p class="tile-label">Solo voce</p>
-            <h3>Niente tastiera. Niente caselle.</h3>
-            <p>Dici «Ehi Mimir», parli, lui risponde. Il microfono si chiude da solo quando hai finito.</p>
-          </article>
-
-          <article class="tile reveal">
-            <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 24c-4-5-7-7-10-7a7 7 0 0 0 0 14c3 0 6-2 10-7s7-7 10-7a7 7 0 0 1 0 14c-3 0-6-2-10-7Z"/></svg>
-            <p class="tile-label">Memoria continua</p>
-            <h3>Inizi sul Mac. Continui sull'iPhone.</h3>
-            <p>La conversazione ti segue, senza ricominciare. Le memorie private restano nascoste finché non le chiedi tu.</p>
-          </article>
+          <a href="#demo" class="btn light">Ascolta la demo</a>
+          <a href="#prodotto" class="link">Scopri MIMIR <span aria-hidden="true">›</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============ VOCE (nero) ============ -->
-    <section id="voce" class="band dark">
+    <!-- ============ NUMERI ============ -->
+    <section class="stats" aria-label="MIMIR in numeri">
+      <div class="wrap stats-grid">
+        <div class="stat reveal"><b>1</b><span>parola per svegliarlo</span></div>
+        <div class="stat reveal"><b>8</b><span>moduli specializzati</span></div>
+        <div class="stat reveal"><b>0</b><span>abbonamenti obbligatori</span></div>
+        <div class="stat reveal"><b>24/7</b><span>veglia sui tuoi sistemi</span></div>
+      </div>
+    </section>
+
+    <!-- ============ NASTRO DI PAROLE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Posta</span><span>Agenda</span><span>Casa</span><span>Memoria</span><span>Ricerca</span><span>Meteo</span><span>Promemoria</span><span>Backup</span><span>Sicurezza</span><span>Auto-riparazione</span>
+        <span>Posta</span><span>Agenda</span><span>Casa</span><span>Memoria</span><span>Ricerca</span><span>Meteo</span><span>Promemoria</span><span>Backup</span><span>Sicurezza</span><span>Auto-riparazione</span>
+      </div>
+    </div>
+
+    <!-- ============ PRODOTTO: Mac + iPhone ============ -->
+    <section id="prodotto" class="band white">
       <div class="wrap center">
-        <p class="eyebrow reveal">Interfaccia</p>
-        <h2 class="mega reveal">«Ehi Mimir.»</h2>
-        <p class="lead reveal">Due parole. È tutta l'interfaccia che ti serve.</p>
+        <p class="eyebrow reveal">GALAXY · Interfaccia</p>
+        <h2 class="statement reveal">Inizi sul Mac.<br><span class="soft">Continui sull'iPhone. Senza ripetere niente.</span></h2>
+      </div>
 
-        <ol class="steps">
+      <div class="devices reveal" aria-label="Illustrazione: MIMIR su Mac e iPhone, con dati inventati">
+        <!-- Mac -->
+        <div class="mac">
+          <div class="mac-screen">
+            <div class="ui">
+              <aside class="ui-side">
+                <p class="ui-brand">MIMIR</p>
+                <ul>
+                  <li class="on">Panoramica</li><li>MUNIN</li><li>KVASIR</li><li>SAGA</li><li>FORGE</li><li>VAULT</li><li>BLACK BOX</li>
+                </ul>
+                <p class="ui-status"><span class="live-dot"></span> In ascolto silenzioso</p>
+              </aside>
+              <div class="ui-main">
+                <p class="ui-hello">Buongiorno, Marco.</p>
+                <p class="ui-time">Martedì · 07:10</p>
+                <div class="ui-orb"><div class="orb-core small"><div class="orb-sheen"></div></div></div>
+                <div class="ui-bubble">Fuori ci sono 14 gradi, cielo sereno. In agenda: riunione alle dieci, dentista alle diciotto.</div>
+                <div class="ui-bubble me">Il resto dopo, grazie.</div>
+                <div class="ui-bubble">Ricevuto. Lo riprendo quando vuoi.</div>
+                <div class="ui-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <aside class="ui-cards">
+                <div class="ui-card"><small>Meteo</small><b>14°</b><span>Sereno · max 21°</span></div>
+                <div class="ui-card"><small>Posta</small><b>3</b><span>nuove · 1 importante</span></div>
+                <div class="ui-card"><small>Agenda</small><span>10:00 Riunione team</span><span>18:00 Dentista</span></div>
+              </aside>
+            </div>
+          </div>
+          <div class="mac-base"></div>
+        </div>
+
+        <!-- iPhone -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="island"></div>
+            <p class="phone-time">08:31</p>
+            <div class="phone-orb"><div class="orb-core small"><div class="orb-sheen"></div></div></div>
+            <p class="phone-label">Ripreso dal Mac</p>
+            <div class="chat">
+              <p class="me">Il resto adesso.</p>
+              <p class="it">La palestra conferma il rinnovo. Vuoi che lo segni in agenda?</p>
+              <p class="me">Sì.</p>
+              <p class="it">Fatto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="fineprint center">Immagine illustrativa. Nomi e dati inventati.</p>
+    </section>
+
+    <!-- ============ UNA GIORNATA ============ -->
+    <section id="giornata" class="band dark">
+      <div class="wrap">
+        <p class="eyebrow reveal">Una giornata con MIMIR</p>
+        <h2 class="statement reveal">Dalle sette del mattino<br><span class="soft">alle tre di notte. Sempre un passo avanti.</span></h2>
+
+        <ol class="timeline">
           <li class="reveal">
-            <span class="step-n">01</span>
-            <h3>Chiamalo</h3>
-            <p>MIMIR resta in ascolto silenzioso. Si sveglia solo quando sente il suo nome.</p>
+            <time>07:10</time>
+            <div>
+              <h3>Il recap del mattino</h3>
+              <p>Meteo, posta, agenda. In trenta secondi sai tutto quello che ti serve, prima ancora del caffè.</p>
+            </div>
+            <div class="mini">
+              <div class="mini-row"><span>Meteo</span><b>14° sereno</b></div>
+              <div class="mini-row"><span>Posta</span><b>3 nuove</b></div>
+              <div class="mini-row"><span>Agenda</span><b>2 impegni</b></div>
+            </div>
           </li>
           <li class="reveal">
-            <span class="step-n">02</span>
-            <h3>Parla</h3>
-            <p>Chiedi come faresti a una persona. Niente comandi da imparare a memoria.</p>
+            <time>08:30</time>
+            <div>
+              <h3>«Sto uscendo»</h3>
+              <p>Spegne le luci, avvia il robot, controlla porte e finestre. Ti avvisa solo se qualcosa non va.</p>
+            </div>
+            <div class="mini">
+              <div class="mini-row"><span>Luci soggiorno</span><em class="tog"></em></div>
+              <div class="mini-row"><span>Robot aspirapolvere</span><em class="tog on"></em></div>
+              <div class="mini-row"><span>Telecamera ingresso</span><em class="tog on"></em></div>
+            </div>
           </li>
           <li class="reveal">
-            <span class="step-n">03</span>
-            <h3>Ascolta</h3>
-            <p>Risponde a voce, con frasi brevi e sicure. Poi torna in silenzio.</p>
+            <time>13:00</time>
+            <div>
+              <h3>Una ricerca, fatta bene</h3>
+              <p>SAGA cerca, confronta e riassume. Tu ascolti solo la risposta, in due frasi.</p>
+            </div>
+            <div class="mini">
+              <div class="mini-bar"><span style="--w:92%"></span></div>
+              <div class="mini-row"><span>Fonti lette</span><b>12</b></div>
+              <div class="mini-row"><span>Risposta</span><b>2 frasi</b></div>
+            </div>
+          </li>
+          <li class="reveal">
+            <time>21:40</time>
+            <div>
+              <h3>Una memoria privata</h3>
+              <p>«Dove ho messo i documenti dell'auto?» MIMIR lo sa. Ma te lo dice solo se lo sblocchi tu.</p>
+            </div>
+            <div class="mini">
+              <div class="mini-lock">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="20" width="28" height="20" rx="3"/><path d="M16 20v-5a8 8 0 0 1 16 0v5"/></svg>
+                <span>Memoria privata · sbloccata su richiesta</span>
+              </div>
+              <div class="mini-blur">Cassetto della scrivania, cartellina blu</div>
+            </div>
+          </li>
+          <li class="reveal">
+            <time>03:04</time>
+            <div>
+              <h3>Mentre dormi, si ripara</h3>
+              <p>Il calendario si disconnette? FORGE lo ricollega. Tutto annotato nella BLACK BOX.</p>
+            </div>
+            <div class="mini mono">
+              <p><span>03:02</span> sync calendario · errore</p>
+              <p><span>03:03</span> FORGE · diagnosi</p>
+              <p><span>03:04</span> sync ripristinata ✓</p>
+            </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ MODULI (grigio chiaro) ============ -->
-    <section id="moduli" class="band light">
+    <!-- ============ VOCE ============ -->
+    <section id="voce" class="band voice">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Interfaccia</p>
+        <h2 class="mega reveal">«Ehi Mimir.»</h2>
+        <p class="lead reveal">Due parole. Nessuna tastiera, nessuna casella, nessun menu.<br>La tecnologia migliore è quella che non vedi.</p>
+        <div class="bigwave reveal" aria-hidden="true"></div>
+
+        <ol class="steps">
+          <li class="reveal"><span class="step-n">01</span><h3>Chiamalo</h3><p>Resta in ascolto silenzioso. Si sveglia solo quando sente il suo nome.</p></li>
+          <li class="reveal"><span class="step-n">02</span><h3>Parla</h3><p>Come faresti con una persona. Niente comandi da imparare a memoria.</p></li>
+          <li class="reveal"><span class="step-n">03</span><h3>Ascolta</h3><p>Risponde con frasi brevi e sicure. Poi il microfono si chiude da solo.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FUNZIONI (bento) ============ -->
+    <section id="funzioni" class="band light">
       <div class="wrap">
-        <p class="eyebrow reveal">Architettura</p>
-        <h2 class="statement reveal">Un cervello.<br><span class="soft">Otto moduli in orbita.</span></h2>
+        <p class="eyebrow reveal">Cosa sa fare</p>
+        <h2 class="statement reveal">Un maggiordomo digitale.<br><span class="soft">Con una squadra intera al suo servizio.</span></h2>
+
+        <div class="bento">
+          <article class="tile span2 dark-tile reveal">
+            <p class="tile-label">Locale</p>
+            <h3>Il cervello vive sul tuo Mac.<br><span class="soft">Non su un server lontano.</span></h3>
+            <p>Il modello AI gira sul tuo computer. Le AI in cloud sono un'opzione, mai una dipendenza.</p>
+            <div class="chip-row"><span>Mac</span><span class="arrow">⟷</span><span>iPhone</span><span class="cross">Server esterni: facoltativi</span></div>
+          </article>
+          <article class="tile reveal">
+            <p class="tile-label">Memoria continua</p>
+            <h3>Ricorda.<br>Per davvero.</h3>
+            <p>Gusti, abitudini, dove hai messo le cose. Le memorie private restano nascoste finché non le chiedi tu.</p>
+          </article>
+          <article class="tile reveal">
+            <p class="tile-label">Posta</p>
+            <h3>Solo quello che conta.</h3>
+            <div class="mail">
+              <p class="imp"><b>Palestra Aurora</b><span>Rinnovo confermato</span></p>
+              <p><b>Studio Verdi</b><span>Promemoria appuntamento</span></p>
+              <p><b>Newsletter</b><span>Archiviata per te</span></p>
+            </div>
+          </article>
+          <article class="tile reveal">
+            <p class="tile-label">Casa</p>
+            <h3>La casa ti ascolta.</h3>
+            <div class="home">
+              <div><em class="tog"></em><span>Luci</span></div>
+              <div><em class="tog on"></em><span>Robot</span></div>
+              <div><em class="tog on"></em><span>Allarme</span></div>
+            </div>
+          </article>
+          <article class="tile reveal">
+            <p class="tile-label">Auto-riparazione</p>
+            <h3>Si aggiusta da solo.</h3>
+            <p>FORGE trova i guasti e li ripara. Se serve il tuo permesso, te lo chiede con una soluzione già pronta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODULI IN ORBITA ============ -->
+    <section id="moduli" class="band dark">
+      <div class="wrap">
+        <p class="eyebrow reveal center">Architettura</p>
+        <h2 class="statement reveal center">Un cervello.<br><span class="soft">Otto moduli in orbita.</span></h2>
+
+        <div class="orbit reveal" aria-hidden="true">
+          <div class="orbit-ring o1"></div>
+          <div class="orbit-ring o2"></div>
+          <div class="orbit-center"><div class="orb-core small"><div class="orb-sheen"></div></div><b>MIMIR</b></div>
+          <div class="orbit-spin">
+            <div class="node" style="--a:0deg"><span>MUNIN</span></div>
+            <div class="node" style="--a:45deg"><span>KVASIR</span></div>
+            <div class="node" style="--a:90deg"><span>SAGA</span></div>
+            <div class="node" style="--a:135deg"><span>FORGE</span></div>
+            <div class="node" style="--a:180deg"><span>LAB</span></div>
+            <div class="node" style="--a:225deg"><span>GALAXY</span></div>
+            <div class="node" style="--a:270deg"><span>VAULT</span></div>
+            <div class="node" style="--a:315deg"><span>BLACK BOX</span></div>
+          </div>
+        </div>
 
         <div class="modules">
-          <div class="mod core reveal">
-            <span class="mod-n">00</span>
-            <b>MIMIR</b>
-            <span>Cervello e orchestratore. Capisce cosa chiedi e decide quale modulo deve occuparsene.</span>
-          </div>
           <div class="mod reveal"><span class="mod-n">01</span><b>MUNIN</b><span>Memoria personale</span></div>
           <div class="mod reveal"><span class="mod-n">02</span><b>KVASIR</b><span>Conoscenza del mondo</span></div>
           <div class="mod reveal"><span class="mod-n">03</span><b>SAGA</b><span>Ricerca</span></div>
@@ -137,11 +307,11 @@
       </div>
     </section>
 
-    <!-- ============ DEMO (nero) ============ -->
-    <section id="demo" class="band dark see-through">
+    <!-- ============ DEMO ============ -->
+    <section id="demo" class="band dark demo-band">
       <div class="wrap">
         <p class="eyebrow reveal">Demo</p>
-        <h2 class="statement reveal">Sentilo parlare.<br><span class="soft">Scegli una scena e premi play.</span></h2>
+        <h2 class="statement reveal">Non leggerlo.<br><span class="soft">Ascoltalo.</span></h2>
 
         <div class="demo reveal">
           <div class="demo-controls">
@@ -156,8 +326,13 @@
 
           <div class="demo-body">
             <div class="demo-stage">
-              <div class="status"><i class="dot"></i><span id="demo-status">In ascolto silenzioso…</span></div>
-              <div class="wave" id="wave"></div>
+              <div class="demo-head">
+                <div class="demo-orb"><div class="orb-core small"><div class="orb-sheen"></div></div></div>
+                <div>
+                  <div class="status"><i class="dot"></i><span id="demo-status">In ascolto silenzioso…</span></div>
+                  <div class="wave" id="wave"></div>
+                </div>
+              </div>
               <div class="transcript" id="transcript" aria-live="polite"></div>
               <button class="btn light" id="demo-play">▶ Di' «Ehi Mimir»</button>
             </div>
@@ -168,11 +343,19 @@
       </div>
     </section>
 
-    <!-- ============ PRIVACY (bianco) ============ -->
+    <!-- ============ PRIVACY ============ -->
     <section id="privacy" class="band white">
       <div class="wrap">
         <p class="eyebrow reveal">Privacy</p>
-        <h2 class="statement reveal">La privacy non è un'impostazione.<br><span class="soft">È il modo in cui è costruito.</span></h2>
+        <h2 class="statement reveal">Ti conosce meglio di chiunque.<br><span class="soft">E non lo dice a nessuno.</span></h2>
+
+        <div class="compare reveal">
+          <div class="compare-row head"><span></span><b>MIMIR</b><b class="dim">Assistente in cloud</b></div>
+          <div class="compare-row"><span>Dove vivono i tuoi dati</span><b>Sul tuo computer</b><b class="dim">Sui server dell'azienda</b></div>
+          <div class="compare-row"><span>Senza abbonamento</span><b>Sì</b><b class="dim">Dipende</b></div>
+          <div class="compare-row"><span>Memorie private sotto chiave</span><b>Sì</b><b class="dim">—</b></div>
+          <div class="compare-row"><span>Registro di ogni azione</span><b>BLACK BOX</b><b class="dim">—</b></div>
+        </div>
 
         <div class="pillars">
           <article class="reveal">
@@ -194,29 +377,41 @@
       </div>
     </section>
 
-    <!-- ============ CHIUSURA (nero) ============ -->
-    <section class="band dark closing">
+    <!-- ============ DOMANDE ============ -->
+    <section id="faq" class="band light">
+      <div class="wrap narrow">
+        <p class="eyebrow reveal">Domande</p>
+        <h2 class="statement reveal">Domande frequenti.</h2>
+        <div class="faq">
+          <details class="reveal"><summary>MIMIR ascolta sempre quello che dico?</summary><p>No. Resta in ascolto silenzioso e si attiva solo quando sente «Ehi Mimir». Quando hai finito di parlare, il microfono si chiude da solo.</p></details>
+          <details class="reveal"><summary>Dove finiscono i miei dati?</summary><p>Restano sul tuo computer. Le AI in cloud si possono usare, ma solo se lo decidi tu.</p></details>
+          <details class="reveal"><summary>Funziona anche sull'iPhone?</summary><p>Sì: inizi una conversazione sul Mac e la riprendi dall'iPhone, senza ricominciare da capo.</p></details>
+          <details class="reveal"><summary>Posso scrivergli invece di parlare?</summary><p>No, ed è una scelta precisa: MIMIR è solo vocale. Niente caselle di testo, niente tasti.</p></details>
+          <details class="reveal"><summary>Quando sarà disponibile?</summary><p>MIMIR è un progetto personale in sviluppo. Questo sito è una presentazione: la demo è simulata.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHIUSURA ============ -->
+    <section class="band closing">
+      <div class="closing-glow" aria-hidden="true"></div>
       <div class="wrap center">
+        <div class="orb-core closing-orb reveal" aria-hidden="true"><div class="orb-sheen"></div></div>
         <h2 class="mega reveal">MIMIR.</h2>
         <p class="lead reveal">Il tuo assistente. Solo tuo.</p>
-        <a href="#demo" class="btn light reveal">Riascolta la demo</a>
+        <a href="#demo" class="btn light reveal">Ascolta la demo</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <p>MIMIR è un progetto personale in sviluppo. Questo sito è solo una presentazione: la demo è simulata e usa dati inventati.</p>
+      <p>MIMIR è un progetto personale in sviluppo. Questo sito è solo una presentazione: la demo è simulata e tutti i nomi e i dati mostrati sono inventati.</p>
       <p class="fine">Locale · Vocale · Privato</p>
     </div>
   </footer>
 
   <script src="demo.js"></script>
   <script src="site.js"></script>
-  <script type="module" src="reactor.js"></script>
-  <script>
-    // se three.js non si carica entro 4 secondi, mostra il reattore CSS
-    setTimeout(() => { if (!window.mimirReactor) document.body.classList.add("no-webgl"); }, 4000);
-  </script>
 </body>
 </html>

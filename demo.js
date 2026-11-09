@@ -71,8 +71,8 @@ function animateWave(on) {
   }, 110);
 }
 
-// collegamento al reattore 3D (se c'è)
-function reactorLevel(v) { if (window.mimirReactor) window.mimirReactor.setLevel(v); }
+// le sfere luminose della pagina si "gonfiano" quando MIMIR parla (vedi --level in style.css)
+function reactorLevel(v) { document.documentElement.style.setProperty("--level", v); }
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
