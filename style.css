@@ -135,6 +135,32 @@ body::after {
 .letter-text { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.35; letter-spacing: -0.02em; font-weight: 500; color: var(--ink); margin-bottom: 22px; }
 .signature { font-size: 22px; font-style: italic; color: var(--gray); margin-top: 30px; }
 
+/* ============ Etichette di stato: Funziona oggi / In sviluppo / In programma ============ */
+.tag {
+  display: inline-flex; align-items: center; gap: 7px; width: fit-content; white-space: nowrap; vertical-align: middle;
+  font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-style: normal;
+  padding: 4px 10px 4px 9px; border-radius: 980px; border: 1px solid currentColor; opacity: .8; line-height: 1.2;
+}
+.tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
+.tag-o { opacity: 1; }
+.tag-o::before { background: #34c759; border-color: #34c759; }                               /* pieno: funziona */
+.tag-s::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }      /* a metà: ci sto lavorando */
+.tag-p { border-style: dashed; }                                                               /* tratteggiato: in programma */
+.tag-line { margin: -50px 0 70px; }
+.tag-line.center { margin: 26px 0 0; text-align: center; }
+.center .tag-line, .tag-line.center { display: flex; justify-content: center; }
+.timeline .tag { margin-bottom: 12px; }
+.tile .tag { margin: 2px 0 4px; }
+.pillars .tag { margin: -2px 0 12px; }
+.faq summary .tag { margin-left: 10px; font-size: 10px; letter-spacing: .05em; position: relative; top: -2px; }
+.mod-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; }
+.mod-foot .mod-hint { margin-top: 0; }
+.mod-front .tag { font-size: 10px; padding: 3px 8px; color: #d2d2d7; }
+.anchor { height: 0; scroll-margin-top: 48px; }
+.footer .repo { margin-top: 8px; }
+.footer .repo a { color: var(--gray); text-decoration: underline; text-underline-offset: 2px; }
+.footer .repo a:hover { color: var(--ink); }
+
 /* ============ Sezioni ============ */
 .band { padding: 160px 0; position: relative; overflow: hidden; }
 .band.white { background: var(--white); color: var(--ink); }
@@ -574,6 +600,8 @@ body::after {
   body { font-size: 16px; }
   .band { padding: 110px 0; }
   .statement { margin-bottom: 52px; }
+  .tag-line { margin: -28px 0 50px; }
+  .tag-line.center { margin: 22px 0 0; }
   .nav nav { display: none; }
   .br-desk { display: none; }
   .mac { width: 100%; }
@@ -609,6 +637,7 @@ body::after {
   .mod-desc { font-size: 12.5px; line-height: 1.4; }
   .mod-myth { font-size: 11px; }
   .mod-mark { font-size: 110px; }
+  .mod-foot .mod-hint { display: none; } /* su telefono basta l'etichetta */
 }
 @media (max-width: 400px) {
   .home { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }

@@ -49,7 +49,18 @@
   un'etichetta piccola: "Funziona oggi", "In sviluppo" o "In programma".
   Prima di assegnarne una nuova, chiedi a Riccardo in chat.
 - In apertura c'è l'etichetta "Anteprima · in sviluppo".
-- Il tasto finale è "Segui il progetto" (niente "Compra" o "Scarica").
+- Il tasto finale è "Segui il progetto" (niente "Compra" o "Scarica"):
+  porta all'ancora #stato, dove ci sarà la sezione "Stato dei lavori".
+- Niente link a LinkedIn, da nessuna parte del sito.
+- Il link al repository GitHub sta solo in fondo alla pagina, in piccolo.
+- Se un riquadro mostra più funzioni con stati diversi, si usa
+  l'etichetta di quella meno avanti.
+- Stati attuali (decisi da Riccardo):
+  Funziona oggi: modello AI locale sul Mac.
+  In sviluppo: recap del mattino, memoria privata, memoria continua,
+  parola di attivazione e voce, MUNIN, KVASIR, GALAXY.
+  In programma: «Sto uscendo» (casa), ricerca, auto-riparazione notturna,
+  posta, casa, app per iPhone, SAGA, FORGE, LAB, VAULT, BLACK BOX.
 - Niente numeri riempitivi (tipo "1 · 8 · 0 · 24/7") e niente nastro di
   parole giganti.
 
