@@ -1,91 +1,164 @@
 /* =========================================================
-   DEMO SIMULATA DI MIMIR
-   Tutto è scritto a mano: nessun dato reale, nessun server.
-   I nomi e i dati nelle scene sono inventati.
-   Per aggiungere o modificare una scena, cambia SCENES qui sotto.
+   DEMO SIMULATA DI MIMIR (è l'apertura del sito)
+   - Il saluto usa SOLO quello che il browser sa già: ora, giorno,
+     dispositivo e fuso orario. Viene calcolato qui, al momento:
+     non viene salvato e non viene mandato da nessuna parte
+     (nemmeno a GoatCounter).
+   - Il saluto è solo sottotitolo, scritto lettera per lettera, senza voce.
+     La voce (del browser, per ora) parte dalla frase successiva.
+   - Tutto il resto è scritto a mano, con dati inventati.
+   Per modificare le scene, cambia MATTINA e SCENES qui sotto.
    ========================================================= */
+
+/* ---------- 1. Il saluto personalizzato ---------- */
+
+// fuso orario -> da dove ci stai guardando (zona approssimativa)
+const ZONE = {
+  "Europe/Rome": "dall'Italia", "Europe/Vatican": "dall'Italia", "Europe/San_Marino": "da San Marino",
+  "Europe/Zurich": "dalla Svizzera", "Europe/Paris": "dalla Francia", "Europe/Berlin": "dalla Germania",
+  "Europe/Madrid": "dalla Spagna", "Europe/Lisbon": "dal Portogallo", "Europe/London": "dal Regno Unito",
+  "Europe/Dublin": "dall'Irlanda", "Europe/Amsterdam": "dai Paesi Bassi", "Europe/Brussels": "dal Belgio",
+  "Europe/Luxembourg": "dal Lussemburgo", "Europe/Vienna": "dall'Austria", "Europe/Prague": "dalla Repubblica Ceca",
+  "Europe/Warsaw": "dalla Polonia", "Europe/Budapest": "dall'Ungheria", "Europe/Bucharest": "dalla Romania",
+  "Europe/Zagreb": "dalla Croazia", "Europe/Ljubljana": "dalla Slovenia", "Europe/Athens": "dalla Grecia",
+  "Europe/Malta": "da Malta", "Europe/Stockholm": "dalla Svezia", "Europe/Oslo": "dalla Norvegia",
+  "Europe/Copenhagen": "dalla Danimarca", "Europe/Helsinki": "dalla Finlandia", "Atlantic/Reykjavik": "dall'Islanda",
+  "Europe/Kyiv": "dall'Ucraina", "Europe/Kiev": "dall'Ucraina", "Europe/Istanbul": "dalla Turchia",
+  "Europe/Moscow": "dalla Russia", "Asia/Jerusalem": "da Israele", "Asia/Dubai": "dagli Emirati Arabi",
+  "Asia/Kolkata": "dall'India", "Asia/Calcutta": "dall'India", "Asia/Shanghai": "dalla Cina", "Asia/Hong_Kong": "da Hong Kong",
+  "Asia/Singapore": "da Singapore", "Asia/Tokyo": "dal Giappone", "Asia/Seoul": "dalla Corea del Sud",
+  "Africa/Cairo": "dall'Egitto", "Africa/Johannesburg": "dal Sudafrica",
+  "America/New_York": "dagli Stati Uniti", "America/Chicago": "dagli Stati Uniti", "America/Denver": "dagli Stati Uniti",
+  "America/Phoenix": "dagli Stati Uniti", "America/Los_Angeles": "dagli Stati Uniti", "America/Anchorage": "dagli Stati Uniti",
+  "Pacific/Honolulu": "dagli Stati Uniti", "America/Toronto": "dal Canada", "America/Vancouver": "dal Canada",
+  "America/Montreal": "dal Canada", "America/Mexico_City": "dal Messico", "America/Sao_Paulo": "dal Brasile",
+  "America/Argentina/Buenos_Aires": "dall'Argentina", "America/Buenos_Aires": "dall'Argentina",
+  "Australia/Sydney": "dall'Australia", "Australia/Melbourne": "dall'Australia", "Australia/Perth": "dall'Australia",
+  "Pacific/Auckland": "dalla Nuova Zelanda"
+};
+
+function zona() {
+  let tz = "";
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+  return ZONE[tz] || "dalle tue parti";
+}
+
+function dispositivo() {
+  const ua = navigator.userAgent || "";
+  if (/iPhone/.test(ua)) return "un iPhone";
+  if (/iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "un iPad";
+  if (/Android/.test(ua)) return /Mobile/.test(ua) ? "un telefono Android" : "un tablet Android";
+  if (/Mac/.test(ua)) return "un Mac";
+  if (/Windows/.test(ua)) return "un computer Windows";
+  if (/CrOS/.test(ua)) return "un Chromebook";
+  if (/Linux/.test(ua)) return "un computer Linux";
+  return "questo dispositivo";
+}
+
+function saluto() {
+  const now = new Date();
+  const h = now.getHours(), m = now.getMinutes();
+  const buon = h >= 5 && h < 12 ? "Buongiorno" : h >= 12 && h < 18 ? "Buon pomeriggio" : "Buonasera";
+  const giorno = now.toLocaleDateString("it-IT", { weekday: "long" });
+  const mm = String(m).padStart(2, "0");
+  const ora =
+    h === 0 ? "è mezzanotte" + (m ? " e " + m : "") :
+    h === 1 ? "è l'una" + (m ? " e " + m : "") :
+    h === 12 ? "è mezzogiorno" + (m ? " e " + m : "") :
+    "sono le " + h + ":" + mm;
+  return `${buon}. È ${giorno}, ${ora}. Mi stai guardando da ${dispositivo()}, ${zona()}. ` +
+         `Io sono MIMIR. Odino diede un occhio per la saggezza. A te è bastato un browser.`;
+}
+
+/* ---------- 2. Le scene (dati inventati, senza nomi di persona) ---------- */
+
+const CHIUSURA = "L'ora, il giorno, il dispositivo e la zona li ho capiti dal tuo browser. Non sono usciti da qui. Il resto era inventato.";
+
+// dopo il saluto: una mattina qualunque, valida per chiunque e a qualsiasi ora
+const MATTINA = [
+  { who: "mimir", text: "Ti faccio sentire come comincia una mattina con me." },
+  { who: "mimir", text: "Fuori ci sono quattordici gradi, cielo sereno. Giacca leggera e niente ombrello.",
+    card: "Meteo · 14° sereno" },
+  { who: "mimir", text: "Hai tre mail nuove. Una è importante: la palestra conferma il rinnovo.",
+    card: "Posta · 3 nuove, 1 importante" },
+  { who: "mimir", text: "In agenda: riunione di team alle dieci, dentista alle diciotto.",
+    card: "Agenda · 10:00 riunione · 18:00 dentista" },
+  { who: "mimir", text: CHIUSURA }
+];
 
 const SCENES = {
   recap: [
     { who: "user",  text: "Ehi Mimir, buongiorno." },
-    { who: "mimir", text: "Buongiorno, Marco. Sono le sette e dieci." },
-    { who: "mimir", text: "Fuori ci sono quattordici gradi, cielo sereno. Giacca leggera e niente ombrello.",
-      card: { t: "Meteo", p: "14° · sereno · max 21°" } },
-    { who: "mimir", text: "Hai tre mail nuove. Una è importante: la palestra conferma il rinnovo.",
-      card: { t: "Posta", p: "3 nuove · 1 importante" } },
-    { who: "mimir", text: "In agenda: riunione di team alle dieci, dentista alle diciotto.",
-      card: { t: "Calendario", p: "10:00 Riunione team · 18:00 Dentista" } },
+    { who: "mimir", text: "Buongiorno. Sono le sette e dieci." },
+    { who: "mimir", text: "Fuori ci sono quattordici gradi, cielo sereno.", card: "Meteo · 14° sereno" },
+    { who: "mimir", text: "In agenda: riunione di team alle dieci, dentista alle diciotto.", card: "Agenda · 2 impegni" },
     { who: "user",  text: "Il resto dopo, grazie." },
     { who: "mimir", text: "Ricevuto. Lo riprendo quando vuoi." }
   ],
   casa: [
     { who: "user",  text: "Ehi Mimir, sto uscendo." },
-    { who: "mimir", text: "Spengo le luci del soggiorno e avvio il robot aspirapolvere.",
-      card: { t: "Casa", p: "Luci soggiorno: OFF · Robot: in pulizia" } },
+    { who: "mimir", text: "Spengo le luci del soggiorno e avvio il robot aspirapolvere.", card: "Casa · luci spente · robot in pulizia" },
     { who: "mimir", text: "La finestra della cucina è aperta. Te lo segnalo." },
     { who: "user",  text: "Lasciala così." },
-    { who: "mimir", text: "D'accordo. Telecamera dell'ingresso attiva.",
-      card: { t: "Sicurezza", p: "Telecamera ingresso: attiva" } }
+    { who: "mimir", text: "D'accordo. Telecamera dell'ingresso attiva.", card: "Sicurezza · telecamera attiva" }
   ],
   memoria: [
     { who: "user",  text: "Ehi Mimir, dove ho messo i documenti dell'auto?" },
     { who: "mimir", text: "È una memoria privata. Vuoi che la sblocchi?" },
     { who: "user",  text: "Sì." },
-    { who: "mimir", text: "Cassetto della scrivania, cartellina blu. L'hai annotato il tre marzo.",
-      card: { t: "MUNIN · memoria privata", p: "Sbloccata su richiesta · si richiude da sola" } },
+    { who: "mimir", text: "Cassetto della scrivania, cartellina blu. L'hai annotato il tre marzo.", card: "MUNIN · memoria privata sbloccata" },
     { who: "mimir", text: "Memoria di nuovo nascosta." }
   ],
   anomalie: [
     { who: "user",  text: "Ehi Mimir, com'è andata stanotte?" },
     { who: "mimir", text: "Due anomalie. Una l'ho riparata io." },
-    { who: "mimir", text: "Il calendario si era disconnesso alle tre. Ricollegato.",
-      card: { t: "FORGE · riparato", p: "Sync calendario ripristinata alle 03:04" } },
-    { who: "mimir", text: "Il backup notturno non è partito: serve il tuo permesso per liberare spazio. Ho già una soluzione pronta.",
-      card: { t: "Serve da te", p: "Backup: spazio insufficiente · soluzione pronta" } },
+    { who: "mimir", text: "Il calendario si era disconnesso alle tre. Ricollegato.", card: "FORGE · sync ripristinata alle 03:04" },
+    { who: "mimir", text: "Il backup notturno non è partito: serve il tuo permesso per liberare spazio.", card: "Serve da te · backup" },
     { who: "user",  text: "Procedi." },
-    { who: "mimir", text: "Fatto. Annotato nella Black Box.",
-      card: { t: "BLACK BOX", p: "Azione registrata · 07:12" } }
+    { who: "mimir", text: "Fatto. Annotato nella Black Box.", card: "BLACK BOX · azione registrata" }
   ]
 };
 
-/* ---------- elementi della pagina ---------- */
-const demoEl     = document.querySelector(".demo");
-const transcript = document.getElementById("transcript");
-const cards      = document.getElementById("demo-cards");
-const statusEl   = document.getElementById("demo-status");
-const playBtn    = document.getElementById("demo-play");
-const voiceOn    = document.getElementById("voice-on");
-const wave       = document.getElementById("wave");
+/* ---------- 3. Elementi della pagina ---------- */
+const demoEl   = document.querySelector(".demo");
+const subWho   = document.getElementById("sub-who");
+const subText  = document.getElementById("sub-text");
+const chip     = document.getElementById("demo-cards");
+const playBtn  = document.getElementById("demo-play");
+const skipBtn  = document.getElementById("demo-skip");
+const sceneBar = document.getElementById("scene-bar");
+const voiceOn  = document.getElementById("voice-on");
+const wave     = document.getElementById("wave");
 
-let current = "recap";
-let runId = 0; // serve per interrompere una scena se ne scegli un'altra
+let runId = 0; // serve per fermare una scena se ne scegli un'altra o premi "Salta"
+let scenaCorrente = "";
 
-// barre dell'onda sonora
-const bars = Array.from({ length: 32 }, () => wave.appendChild(document.createElement("i")));
+// statistiche: solo nomi fissi, MAI i dati del saluto (vedi contatore.js)
+function conta(nome) {
+  if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: nome, title: nome, event: true });
+}
+
+// onda sonora
+const bars = Array.from({ length: 28 }, () => wave.appendChild(document.createElement("i")));
 let waveTimer = null;
 function animateWave(on) {
   clearInterval(waveTimer);
-  if (!on) { bars.forEach(b => (b.style.height = "6px")); return; }
-  waveTimer = setInterval(() => {
-    bars.forEach(b => (b.style.height = 6 + Math.random() * 40 + "px"));
-  }, 110);
+  if (!on) { bars.forEach(b => (b.style.height = "3px")); return; }
+  waveTimer = setInterval(() => bars.forEach(b => (b.style.height = 3 + Math.random() * 24 + "px")), 110);
 }
-
-// le sfere luminose della pagina si "gonfiano" quando MIMIR parla (vedi --level in style.css)
-function reactorLevel(v) { document.documentElement.style.setProperty("--level", v); }
+// le sfere si "gonfiano" quando MIMIR parla (variabile --level in style.css)
+function level(v) { document.documentElement.style.setProperty("--level", v); }
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
-// voce del browser (sintesi vocale gratuita integrata, nessuna installazione)
+// voce del browser (gratuita, integrata). Nella Fase 3 arriveranno gli audio veri.
 function speak(text) {
   return new Promise(resolve => {
-    if (!voiceOn.checked || !("speechSynthesis" in window)) {
-      return setTimeout(resolve, 900 + text.length * 45);
-    }
+    if (!voiceOn.checked || !("speechSynthesis" in window)) return setTimeout(resolve, 900 + text.length * 45);
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "it-IT";
-    const it = speechSynthesis.getVoices().find(v => v.lang.startsWith("it") && /male|luca|diego|cosimo/i.test(v.name))
-            || speechSynthesis.getVoices().find(v => v.lang.startsWith("it"));
+    const voci = speechSynthesis.getVoices();
+    const it = voci.find(v => v.lang.startsWith("it") && /male|luca|diego|cosimo/i.test(v.name)) || voci.find(v => v.lang.startsWith("it"));
     if (it) u.voice = it;
     u.rate = 1.02; u.pitch = 0.85;
     u.onend = resolve; u.onerror = resolve;
@@ -93,74 +166,100 @@ function speak(text) {
   });
 }
 
-function setState(state, label) {
+function setState(state) {
   demoEl.classList.remove("listening", "speaking");
   if (state) demoEl.classList.add(state);
-  statusEl.textContent = label;
+}
+function showLine(who, text) {
+  subWho.textContent = who === "user" ? "TU" : "MIMIR";
+  subText.textContent = text;
 }
 
-function addLine(step) {
-  const div = document.createElement("div");
-  div.className = "line " + step.who;
-  div.innerHTML = `<small>${step.who === "user" ? "TU" : "MIMIR"}</small>`;
-  div.append(step.text);
-  transcript.appendChild(div);
+// sottotitolo scritto lettera per lettera (solo per il saluto, senza voce)
+async function typeLine(text, id) {
+  subWho.textContent = "MIMIR";
+  subText.textContent = "";
+  const caret = document.createElement("span");
+  caret.className = "caret";
+  setState("speaking"); level(0.3); animateWave(true);
+  for (let i = 0; i < text.length; i++) {
+    if (id !== runId) return;
+    subText.textContent = text.slice(0, i + 1);
+    subText.appendChild(caret);
+    await wait(/[.,]/.test(text[i]) ? 220 : 32);
+  }
+  caret.remove();
+  animateWave(false); level(0.1); setState(null);
+  await wait(900);
 }
 
-function addCard(c) {
-  const el = document.createElement("div");
-  el.className = "info";
-  el.innerHTML = `<h4></h4><p></p>`;
-  el.querySelector("h4").textContent = c.t;
-  el.querySelector("p").textContent = c.p;
-  cards.appendChild(el);
-}
-
-async function play() {
-  const id = ++runId;
-  if ("speechSynthesis" in window) speechSynthesis.cancel();
-  transcript.innerHTML = ""; cards.innerHTML = "";
-  playBtn.disabled = true;
-
-  for (const step of SCENES[current]) {
-    if (id !== runId) return; // scena cambiata nel frattempo
+async function runLines(lines, id) {
+  for (const step of lines) {
+    if (id !== runId) return false;
+    if (step.card) chip.textContent = step.card;
     if (step.who === "user") {
-      setState("listening", "Ti ascolto…");
-      reactorLevel(0.35); animateWave(true);
-      await wait(400);
-      addLine(step);
-      await wait(1100 + step.text.length * 25);
+      setState("listening"); level(0.3); animateWave(true);
+      showLine("user", step.text);
+      await wait(1100 + step.text.length * 30);
       animateWave(false);
     } else {
-      setState("speaking", "MIMIR sta parlando");
-      reactorLevel(1); animateWave(true);
-      addLine(step);
-      if (step.card) addCard(step.card);
+      setState("speaking"); level(1); animateWave(true);
+      showLine("mimir", step.text);
       await speak(step.text);
-      animateWave(false); reactorLevel(0.2);
-      await wait(350);
+      animateWave(false); level(0.15);
+      await wait(400);
     }
   }
-  if (id !== runId) return;
-  setState(null, "In ascolto silenzioso…");
-  reactorLevel(0);
-  playBtn.disabled = false;
-  playBtn.textContent = "↻ Riascolta";
+  return id === runId;
 }
 
-playBtn.addEventListener("click", play);
+function stopAll() {
+  runId++;
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  animateWave(false); level(0); setState(null);
+}
+
+function finish(completed) {
+  if (completed) conta("demo-completata");
+  setState(null); level(0); animateWave(false);
+  skipBtn.hidden = true;
+  playBtn.hidden = true;
+  sceneBar.hidden = false;
+}
+
+async function play(nome) {
+  stopAll();
+  scenaCorrente = nome;
+  const id = runId;
+  chip.textContent = "";
+  playBtn.hidden = true;
+  skipBtn.hidden = false;
+  sceneBar.hidden = true;
+  document.querySelectorAll(".scene").forEach(b => b.classList.toggle("active", b.dataset.scene === nome));
+
+  let ok;
+  if (nome === "saluto") {
+    await typeLine(saluto(), id);
+    ok = id === runId && await runLines(MATTINA, id);
+  } else {
+    ok = await runLines(SCENES[nome], id);
+  }
+  if (id === runId) finish(ok);
+}
+
+/* ---------- 4. Tasti ---------- */
+playBtn.addEventListener("click", () => { conta("prova-mimir"); play("saluto"); });
+
+skipBtn.addEventListener("click", () => {
+  stopAll();
+  // se salti il saluto, resta comunque la frase onesta sui dati del browser
+  showLine("mimir", scenaCorrente === "saluto" ? CHIUSURA : "Va bene, mi fermo qui.");
+  finish(false);
+});
 
 document.querySelectorAll(".scene").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".scene").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    current = btn.dataset.scene;
-    runId++; // ferma la scena in corso
-    if ("speechSynthesis" in window) speechSynthesis.cancel();
-    animateWave(false); reactorLevel(0);
-    setState(null, "In ascolto silenzioso…");
-    transcript.innerHTML = ""; cards.innerHTML = "";
-    playBtn.disabled = false;
-    playBtn.textContent = "▶ Di' «Ehi Mimir»";
+    conta("scena-" + btn.dataset.scene);
+    play(btn.dataset.scene);
   });
 });

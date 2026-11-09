@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MIMIR — L'assistente che ti conosce. E non lo dice a nessuno.</title>
+  <title>MIMIR — Vive sul mio Mac. Sta imparando a parlare.</title>
   <meta name="description" content="MIMIR è l'assistente AI personale che sto costruendo: vive sul Mac, parla italiano e tiene i dati in casa. Anteprima di un progetto in sviluppo.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0b0907">
   <link rel="canonical" href="https://riccardopa.github.io/mimir-site/">
 
   <!-- icona della scheda del browser: la runa ᛗ -->
@@ -40,243 +40,99 @@
     <div class="nav-inner">
       <a href="#top" class="logo"><span class="rune">ᛗ</span> MIMIR</a>
       <nav>
-        <a href="#giornata">Giornata</a>
+        <a href="#giornata">Una giornata</a>
         <a href="#moduli">Moduli</a>
-        <a href="#privacy">Privacy</a>
         <a href="#come">Come è fatto</a>
-        <a href="#stato">Stato dei lavori</a>
       </nav>
       <div class="nav-right">
-        <a href="#demo" class="nav-cta">Demo</a>
+        <a href="#stato" class="nav-cta" data-goatcounter-click="segui-progetto">Segui il progetto</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-mobile">Capitoli</button>
       </div>
     </div>
-    <!-- menu per telefono: i 7 capitoli -->
+    <!-- menu per telefono: i 4 capitoli -->
     <nav id="menu-mobile" class="menu-mobile" aria-label="Capitoli" hidden>
-      <a href="#top"><span class="rune">ᛗ</span>Apertura</a>
-      <a href="#demo"><span class="rune">ᚨ</span>Demo</a>
+      <a href="#top"><span class="rune">ᛗ</span>Apertura · Prova MIMIR</a>
       <a href="#giornata"><span class="rune">ᛞ</span>Una giornata</a>
-      <a href="#nome"><span class="rune">ᛟ</span>I moduli</a>
-      <a href="#privacy"><span class="rune">ᛉ</span>Privacy</a>
+      <a href="#moduli"><span class="rune">ᛟ</span>I moduli e il loro nome</a>
       <a href="#come"><span class="rune">ᛃ</span>Come è fatto · Stato dei lavori</a>
-      <a href="#nota"><span class="rune">ᚱ</span>Nota personale · Domande</a>
     </nav>
   </header>
 
-  <main id="top">
+  <main>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
+    <!-- ============ ᛗ APERTURA = DEMO ============ -->
+    <section id="top" class="hero chapter">
       <div class="hero-bg" aria-hidden="true">
         <div class="spotlight"></div>
         <div class="stars"></div>
         <div class="floor"></div>
       </div>
 
-      <div class="hero-text">
+      <div class="hero-head">
         <p class="preview-badge"><span class="live-dot"></span> Anteprima · in sviluppo</p>
-        <p class="rune-line" aria-label="MIMIR scritto in rune">ᛗ ᛁ ᛗ ᛁ ᚱ</p>
-        <p class="eyebrow">Il mio assistente personale · Locale · Vocale</p>
+        <p class="rune-line ch-rune" aria-label="MIMIR scritto in rune">ᛗ ᛁ ᛗ ᛁ ᚱ</p>
         <h1>Vive sul mio Mac.<br><span class="shine">Sta imparando a parlare.</span></h1>
       </div>
 
-      <div class="orb-stage" aria-hidden="true">
-        <div class="orb">
+      <!-- la demo: la sfera è il palco, sotto un sottotitolo come al cinema -->
+      <div class="stage demo" id="demo">
+        <div class="stage-orb" aria-hidden="true">
           <div class="orb-ring r1"></div>
-          <div class="orb-ring r2"></div>
-          <div class="orb-ring r3"><i></i></div>
+          <div class="orb-ring r2"><i></i></div>
           <div class="orb-core"><div class="orb-sheen"></div></div>
         </div>
-        <div class="orb-reflection"></div>
-        <p class="orb-caption"><span class="live-dot"></span> «Ehi Mimir»</p>
-      </div>
+        <div class="wave" id="wave" aria-hidden="true"></div>
+        <p class="subtitle" aria-live="polite"><b id="sub-who">MIMIR</b><span id="sub-text">Premi il tasto: ti saluto usando solo quello che il tuo browser sa già.</span></p>
+        <p class="info-chip" id="demo-cards" aria-live="polite"></p>
 
-      <div class="hero-bottom">
-        <p class="hero-sub">Ragiona in italiano e tiene i miei dati in casa. Presto ricorderà quello che conta.<br class="br-desk"> Lo sto costruendo un pezzo alla volta.</p>
-        <div class="hero-cta">
-          <a href="#demo" class="btn light">Ascolta la demo</a>
-          <a href="#prodotto" class="link">Scopri MIMIR <span aria-hidden="true">›</span></a>
+        <div class="stage-actions">
+          <button class="btn gold big" id="demo-play" type="button">Prova MIMIR</button>
+          <button class="skip" id="demo-skip" type="button" hidden>Salta ›</button>
+          <div class="scene-bar" id="scene-bar" role="group" aria-label="Altre scene" hidden>
+            <button class="scene" data-scene="saluto" type="button">Saluto</button>
+            <button class="scene" data-scene="recap" type="button">Recap del mattino</button>
+            <button class="scene" data-scene="casa" type="button">Casa</button>
+            <button class="scene" data-scene="memoria" type="button">Memoria privata</button>
+            <button class="scene" data-scene="anomalie" type="button">Anomalie della notte</button>
+          </div>
+        </div>
+        <div class="stage-foot">
+          <label class="switch"><input type="checkbox" id="voice-on" checked><i></i> Voce</label>
+          <p class="note">Simulazione con dati inventati · niente microfono · nulla esce dal tuo browser</p>
         </div>
       </div>
+
+      <p class="hero-sub">Ragiona in italiano e tiene i miei dati in casa. Presto ricorderà quello che conta.<br class="br-desk"> Lo sto costruendo un pezzo alla volta.</p>
     </section>
 
-    <!-- ============ PRODOTTO: Mac + iPhone ============ -->
-    <section id="prodotto" class="band white">
-      <div class="wrap center">
-        <p class="eyebrow"><span class="ch-rune rune" title="Runa Mannaz" aria-hidden="true">ᛗ</span>Apertura · Come sarà</p>
-        <h2 class="statement">Inizi sul Mac.<br><span class="soft">Presto, continui sull'iPhone. Senza ripetere niente.</span></h2>
-        <p class="tag-line"><span class="tag tag-p">In programma</span></p>
-      </div>
-
-      <div class="devices" aria-label="Illustrazione: MIMIR su Mac e iPhone, con dati inventati">
-        <!-- Mac: schermo quasi vuoto, sfera al centro, sottotitolo come al cinema -->
-        <div class="mac">
-          <div class="mac-screen">
-            <div class="film">
-              <p class="film-corner"><span class="live-dot"></span> In ascolto</p>
-              <p class="film-time">07:10</p>
-              <div class="film-orb"><div class="orb-core small"><div class="orb-sheen"></div></div></div>
-              <p class="film-sub"><b>MIMIR</b> Buongiorno, Marco. Fuori ci sono quattordici gradi, cielo sereno.</p>
-            </div>
-          </div>
-          <div class="mac-base"></div>
-        </div>
-
-        <!-- iPhone: stesso stile, la conversazione continua -->
-        <div class="phone">
-          <div class="phone-screen film">
-            <div class="island"></div>
-            <p class="phone-time">08:31</p>
-            <div class="film-orb"><div class="orb-core small"><div class="orb-sheen"></div></div></div>
-            <p class="film-sub"><b>MIMIR</b> La palestra conferma il rinnovo. Lo segno in agenda?</p>
-          </div>
-        </div>
-      </div>
-      <p class="fineprint center">Immagine illustrativa di come sarà. Nomi e dati inventati.</p>
-    </section>
-
-    <!-- ============ DEMO ============ -->
-    <section id="demo" class="band dark demo-band">
-      <div class="wrap">
-        <p class="eyebrow"><span class="ch-rune rune" title="Runa Ansuz" aria-hidden="true">ᚨ</span>Demo</p>
-        <h2 class="statement">Non leggerlo.<br><span class="soft">Ascoltalo.</span></h2>
-
-        <div class="demo">
-          <div class="demo-controls">
-            <div class="segmented" role="group" aria-label="Scene della demo">
-              <button class="scene active" data-scene="recap">Recap del mattino</button>
-              <button class="scene" data-scene="casa">Casa</button>
-              <button class="scene" data-scene="memoria">Memoria privata</button>
-              <button class="scene" data-scene="anomalie">Anomalie della notte</button>
-            </div>
-            <label class="switch"><input type="checkbox" id="voice-on" checked><i></i> Voce</label>
-          </div>
-
-          <div class="demo-body">
-            <div class="demo-stage">
-              <div class="demo-head">
-                <div class="demo-orb"><div class="orb-core small"><div class="orb-sheen"></div></div></div>
-                <div>
-                  <div class="status"><i class="dot"></i><span id="demo-status">In ascolto silenzioso…</span></div>
-                  <div class="wave" id="wave"></div>
-                </div>
-              </div>
-              <div class="transcript" id="transcript" aria-live="polite"></div>
-              <button class="btn light" id="demo-play">▶ Di' «Ehi Mimir»</button>
-            </div>
-            <aside class="demo-cards" id="demo-cards" aria-label="Schede mostrate da MIMIR"></aside>
-          </div>
-        </div>
-        <p class="note">Simulazione: dialoghi scritti a mano, dati inventati. Nessuna connessione a MIMIR.</p>
-
-        <h3 class="sub-statement">«Ehi Mimir.» Tutta l'interfaccia sta in due parole.</h3>
-        <p class="tag-line"><span class="tag tag-s">In sviluppo</span></p>
-        <ol class="steps">
-          <li><span class="step-n">01</span><h3>Chiamalo</h3><p>Resterà in ascolto silenzioso. Si sveglierà solo quando sente il suo nome.</p></li>
-          <li><span class="step-n">02</span><h3>Parla</h3><p>Come faresti con una persona. Niente comandi da imparare a memoria.</p></li>
-          <li><span class="step-n">03</span><h3>Ascolta</h3><p>Risponderà con frasi brevi e sicure. Poi il microfono si chiuderà da solo.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ UNA GIORNATA ============ -->
-    <section id="giornata" class="band white">
+    <!-- ============ ᛞ UNA GIORNATA ============ -->
+    <section id="giornata" class="band chapter">
       <div class="wrap">
         <p class="eyebrow"><span class="ch-rune rune" title="Runa Dagaz" aria-hidden="true">ᛞ</span>Una giornata con MIMIR</p>
-        <h2 class="statement">Dalle sette del mattino<br><span class="soft">alle tre di notte. Ecco come sarà una giornata con MIMIR.</span></h2>
-
-        <ol class="timeline">
-          <li>
-            <time>07:10</time>
-            <div>
-              <span class="tag tag-s">In sviluppo</span>
-              <h3>Il recap del mattino</h3>
-              <p>Meteo, posta, agenda. In trenta secondi saprai tutto quello che ti serve, prima ancora del caffè.</p>
-            </div>
-            <div class="mini">
-              <div class="mini-row"><span>Meteo</span><b>14° sereno</b></div>
-              <div class="mini-row"><span>Posta</span><b>3 nuove</b></div>
-              <div class="mini-row"><span>Agenda</span><b>2 impegni</b></div>
-            </div>
-          </li>
-          <li>
-            <time>08:30</time>
-            <div>
-              <span class="tag tag-p">In programma</span>
-              <h3>«Sto uscendo»</h3>
-              <p>Spegnerà le luci, avvierà il robot, controllerà porte e finestre. Ti avviserà solo se qualcosa non va.</p>
-            </div>
-            <div class="mini">
-              <div class="mini-row"><span>Luci soggiorno</span><em class="tog"></em></div>
-              <div class="mini-row"><span>Robot aspirapolvere</span><em class="tog on"></em></div>
-              <div class="mini-row"><span>Telecamera ingresso</span><em class="tog on"></em></div>
-            </div>
-          </li>
-          <li>
-            <time>13:00</time>
-            <div>
-              <span class="tag tag-p">In programma</span>
-              <h3>Una ricerca, fatta bene</h3>
-              <p>SAGA cercherà, confronterà e riassumerà. Tu ascolterai solo la risposta, in due frasi.</p>
-            </div>
-            <div class="mini">
-              <div class="mini-bar"><span style="--w:92%"></span></div>
-              <div class="mini-row"><span>Fonti lette</span><b>12</b></div>
-              <div class="mini-row"><span>Risposta</span><b>2 frasi</b></div>
-            </div>
-          </li>
-          <li>
-            <time>21:40</time>
-            <div>
-              <span class="tag tag-s">In sviluppo</span>
-              <h3>Una memoria privata</h3>
-              <p>«Dove ho messo i documenti dell'auto?» MIMIR lo saprà. Ma te lo dirà solo se lo sblocchi tu.</p>
-            </div>
-            <div class="mini">
-              <div class="mini-lock">
-                <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="20" width="28" height="20" rx="3"/><path d="M16 20v-5a8 8 0 0 1 16 0v5"/></svg>
-                <span>Memoria privata · sbloccata su richiesta</span>
-              </div>
-              <div class="mini-blur">Cassetto della scrivania, cartellina blu</div>
-            </div>
-          </li>
-          <li>
-            <time>03:04</time>
-            <div>
-              <span class="tag tag-p">In programma</span>
-              <h3>Mentre dormi, si riparerà</h3>
-              <p>Il calendario si disconnette? FORGE lo ricollegherà. Tutto annotato nella BLACK BOX.</p>
-            </div>
-            <div class="mini mono">
-              <p><span>03:02</span> sync calendario · errore</p>
-              <p><span>03:03</span> FORGE · diagnosi</p>
-              <p><span>03:04</span> sync ripristinata ✓</p>
-            </div>
-          </li>
+        <h2 class="statement">Dalle sette del mattino alle tre di notte.<br><span class="soft">Così sarà una giornata con MIMIR.</span></h2>
+        <ol class="day">
+          <li><time>07:10</time><div><h3>Il recap del mattino <span class="tag tag-s">In sviluppo</span></h3><p>Meteo, posta e agenda: in trenta secondi saprai tutto, prima ancora del caffè.</p></div></li>
+          <li><time>08:30</time><div><h3>«Sto uscendo» <span class="tag tag-p">In programma</span></h3><p>Spegnerà le luci, avvierà il robot e ti avviserà solo se qualcosa non va.</p></div></li>
+          <li><time>13:00</time><div><h3>Una ricerca, fatta bene <span class="tag tag-p">In programma</span></h3><p>SAGA leggerà le fonti e ti dirà la risposta in due frasi.</p></div></li>
+          <li><time>21:40</time><div><h3>Una memoria privata <span class="tag tag-s">In sviluppo</span></h3><p>«Dove ho messo i documenti dell'auto?» Lo saprà, ma te lo dirà solo se lo sblocchi tu.</p></div></li>
+          <li><time>03:04</time><div><h3>Mentre dormi, si riparerà <span class="tag tag-p">In programma</span></h3><p>Il calendario si disconnette? FORGE lo ricollegherà e lo annoterà nella BLACK BOX.</p></div></li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ IL NOME ============ -->
-    <section id="nome" class="band dark">
-      <div class="wrap name-grid">
-        <div class="big-rune" aria-hidden="true">ᛗ</div>
-        <div>
-          <p class="eyebrow"><span class="ch-rune rune" title="Runa Othala" aria-hidden="true">ᛟ</span>I moduli e il loro nome</p>
-          <h2 class="statement">Perché si chiama MIMIR.</h2>
-          <p class="story">Nella mitologia norrena, <b>Mímir</b> è il più saggio di tutti. Il nome non è scelto a caso: MIMIR è il consigliere che tieni accanto. E i suoi moduli vengono dalla stessa storia: <b>Munin</b>, il corvo della memoria di Odino. <b>Kvasir</b>, l'essere più saggio. <b>Saga</b>, la dea che ogni giorno beve e parla con Odino.</p>
-          <p class="story">Odino rinunciò a un occhio pur di bere alla fonte di Mímir, e anche dopo la sua morte continuò a chiedergli consiglio.</p>
-          <p class="story-punch">Gli ho dato un Mac.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ MODULI IN ORBITA ============ -->
-    <section id="moduli" class="band dark">
+    <!-- ============ ᛟ MODULI + STORIA DEL NOME ============ -->
+    <section id="moduli" class="band chapter">
       <div class="wrap">
-        <h2 class="statement center">Un cervello.<br><span class="soft">Otto moduli in orbita.</span></h2>
+        <p class="eyebrow"><span class="ch-rune rune" title="Runa Othala" aria-hidden="true">ᛟ</span>I moduli e il loro nome</p>
+        <h2 class="statement">Un cervello.<br><span class="soft">Otto moduli in orbita.</span></h2>
 
-        <div class="orbit" aria-hidden="true">
+        <div class="name-grid">
+          <div class="name-story">
+            <p class="story">Nella mitologia norrena, <b>Mímir</b> è il più saggio di tutti. Il nome non è scelto a caso: MIMIR è il consigliere che tieni accanto. E i suoi moduli vengono dalla stessa storia: <b>Munin</b>, il corvo della memoria di Odino. <b>Kvasir</b>, l'essere più saggio. <b>Saga</b>, la dea che ogni giorno beve e parla con Odino.</p>
+            <p class="story">Odino rinunciò a un occhio pur di bere alla fonte di Mímir, e anche dopo la sua morte continuò a chiedergli consiglio.</p>
+            <p class="story-punch">Gli ho dato un Mac.</p>
+          </div>
+          <div class="orbit" aria-hidden="true">
           <div class="orbit-ring o1"></div>
           <div class="orbit-ring o2"></div>
           <div class="orbit-center"><span class="orbit-rune rune">ᛗ</span><b>MIMIR</b></div>
@@ -292,9 +148,11 @@
           </div>
         </div>
 
-        <p class="cards-hint">Tocca una tessera per scoprirla.</p>
+        </div>
+
+        <p class="cards-hint">Tocca una tessera per girarla.</p>
         <div class="modules">
-          <button class="mod" type="button" aria-pressed="false" aria-label="MUNIN: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="MUNIN: gira la tessera" data-modulo="munin">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">01</span><span class="mod-rune rune">ᛗ</span></span>
@@ -310,7 +168,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="KVASIR: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="KVASIR: gira la tessera" data-modulo="kvasir">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">02</span><span class="mod-rune rune">ᚲ</span></span>
@@ -326,7 +184,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="SAGA: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="SAGA: gira la tessera" data-modulo="saga">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">03</span><span class="mod-rune rune">ᛊ</span></span>
@@ -342,7 +200,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="FORGE: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="FORGE: gira la tessera" data-modulo="forge">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">04</span><span class="mod-rune rune">ᚠ</span></span>
@@ -358,7 +216,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="LAB: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="LAB: gira la tessera" data-modulo="lab">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">05</span><span class="mod-rune rune">ᛚ</span></span>
@@ -374,7 +232,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="GALAXY: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="GALAXY: gira la tessera" data-modulo="galaxy">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">06</span><span class="mod-rune rune">ᚷ</span></span>
@@ -390,7 +248,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="VAULT: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="VAULT: gira la tessera" data-modulo="vault">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">07</span><span class="mod-rune rune">ᚹ</span></span>
@@ -406,7 +264,7 @@
               </span>
             </span>
           </button>
-          <button class="mod" type="button" aria-pressed="false" aria-label="BLACK BOX: gira la tessera">
+          <button class="mod" type="button" aria-pressed="false" aria-label="BLACK BOX: gira la tessera" data-modulo="black-box">
             <span class="mod-inner">
               <span class="mod-face mod-front">
                 <span class="mod-top"><span class="mod-n">08</span><span class="mod-rune rune">ᛒ</span></span>
@@ -426,45 +284,8 @@
       </div>
     </section>
 
-    <!-- ============ PRIVACY ============ -->
-    <section id="privacy" class="band white">
-      <div class="wrap">
-        <p class="eyebrow"><span class="ch-rune rune" title="Runa Algiz" aria-hidden="true">ᛉ</span>Privacy</p>
-        <h2 class="statement">Ti conosce meglio di chiunque.<br><span class="soft">E non lo dice a nessuno.</span></h2>
-
-        <div class="compare">
-          <div class="compare-row head"><span></span><b>MIMIR</b><b class="dim">Assistente in cloud</b></div>
-          <div class="compare-row"><span>Dove vivono i tuoi dati</span><b>Sul tuo computer</b><b class="dim">Sui server dell'azienda</b></div>
-          <div class="compare-row"><span>Senza abbonamento</span><b>Sì</b><b class="dim">Dipende</b></div>
-          <div class="compare-row"><span>Memorie private sotto chiave</span><b>In arrivo</b><b class="dim">—</b></div>
-          <div class="compare-row"><span>Registro di ogni azione</span><b>In arrivo (BLACK BOX)</b><b class="dim">—</b></div>
-        </div>
-
-        <div class="pillars">
-          <article>
-            <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="22" rx="2"/><path d="M18 38h12M24 32v6"/></svg>
-            <h3>Dati a casa tua</h3>
-            <span class="tag tag-o">Funziona oggi</span>
-            <p>Il modello AI gira sul tuo computer: quello che gli dici non va sui server di nessuno.</p>
-          </article>
-          <article>
-            <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="20" width="28" height="20" rx="3"/><path d="M16 20v-5a8 8 0 0 1 16 0v5M24 28v5"/></svg>
-            <h3>Segreti nel VAULT</h3>
-            <span class="tag tag-p">In programma</span>
-            <p>Password e chiavi staranno separate da tutto il resto. I moduli di sviluppo non potranno toccarle.</p>
-          </article>
-          <article>
-            <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="8" width="28" height="32" rx="2"/><path d="M16 16h16M16 22h16M16 28h10"/></svg>
-            <h3>Tutto tracciato</h3>
-            <span class="tag tag-p">In programma</span>
-            <p>Ogni azione finirà nella BLACK BOX: potrai sempre sapere cosa ha fatto MIMIR, e lui non potrà cancellarlo.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ COME È FATTO + STATO DEI LAVORI ============ -->
-    <section id="come" class="band dark">
+    <!-- ============ ᛃ COME È FATTO + STATO + PRIVACY + NOTA + DOMANDE ============ -->
+    <section id="come" class="band chapter">
       <div class="wrap">
         <p class="eyebrow"><span class="ch-rune rune" title="Runa Jera" aria-hidden="true">ᛃ</span>Come è fatto</p>
         <h2 class="statement">Fatto in casa.<br><span class="soft">Un pezzo alla volta, sul mio Mac.</span></h2>
@@ -491,6 +312,7 @@
           </article>
         </div>
 
+
         <!-- Il tasto "Segui il progetto" porta qui -->
         <div id="stato" class="anchor"></div>
         <h3 class="sub-statement">Stato dei lavori</h3>
@@ -508,23 +330,29 @@
             <ul><li>App per iPhone</li><li>Interfaccia GALAXY</li><li>Integrazioni: posta, agenda, casa</li></ul>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <!-- ============ NOTA PERSONALE ============ -->
-    <section id="nota" class="band light">
-      <div class="wrap narrow letter">
-        <p class="eyebrow"><span class="ch-rune rune" title="Runa Raidho" aria-hidden="true">ᚱ</span>Una nota personale</p>
-        <p class="letter-text">Ho iniziato MIMIR perché volevo un assistente che fosse davvero mio. Che parlasse italiano, che ricordasse le cose giuste e che non mandasse la mia vita sui server di qualcun altro.</p>
-        <p class="letter-text">Lo sto costruendo un pezzo alla volta. Questo sito racconta a che punto sono.</p>
-        <p class="signature">— Riccardo</p>
-      </div>
-    </section>
 
-    <!-- ============ DOMANDE ============ -->
-    <section id="faq" class="band light faq-band">
-      <div class="wrap narrow">
-        <h2 class="statement">Domande frequenti.</h2>
+        <div class="two-col">
+          <div id="privacy" class="privacy">
+            <h3 class="sub-statement">Privacy, in breve</h3>
+            <ul class="privacy-list">
+              <li><span class="tag tag-o">Funziona oggi</span>Il cervello gira sul Mac: quello che gli dici non va sui server di nessuno.</li>
+              <li><span class="tag tag-p">In programma</span>Password e chiavi staranno nel VAULT, separate da tutto il resto.</li>
+              <li><span class="tag tag-p">In programma</span>Ogni azione finirà nella BLACK BOX, che nessuno potrà cancellare.</li>
+              <li>Il saluto della demo usa ora, giorno, dispositivo e zona solo dentro il tuo browser: non li salvo e non li mando da nessuna parte.</li>
+              <li>Conto le visite con GoatCounter: niente cookie, nessun dato personale.</li>
+            </ul>
+          </div>
+
+          <div id="nota" class="letter">
+            <h3 class="sub-statement"><span class="rune">ᚱ</span> Una nota personale</h3>
+            <p class="letter-text">Ho iniziato MIMIR perché volevo un assistente che fosse davvero mio. Che parlasse italiano, che ricordasse le cose giuste e che non mandasse la mia vita sui server di qualcun altro.</p>
+            <p class="letter-text">Lo sto costruendo un pezzo alla volta. Questo sito racconta a che punto sono.</p>
+            <p class="signature">— Riccardo</p>
+          </div>
+        </div>
+
+        <h3 class="sub-statement">Domande</h3>
         <div class="faq">
           <details><summary>MIMIR ascolta sempre quello che dico? <span class="tag tag-s">In sviluppo</span></summary><p>No. Resterà in ascolto silenzioso e si attiverà solo quando sente «Ehi Mimir». Quando hai finito di parlare, il microfono si chiuderà da solo. È la parte a cui sto lavorando adesso.</p></details>
           <details><summary>Dove finiscono i miei dati? <span class="tag tag-o">Funziona oggi</span></summary><p>Restano sul tuo computer: il modello AI gira in locale. Le AI in cloud si possono usare, ma solo se lo decidi tu.</p></details>
@@ -532,16 +360,6 @@
           <details><summary>Posso scrivergli invece di parlare? <span class="tag tag-s">In sviluppo</span></summary><p>No, ed è una scelta precisa: MIMIR sarà solo vocale. Niente caselle di testo, niente tasti. La voce è in sviluppo.</p></details>
           <details><summary>Quando sarà disponibile?</summary><p>MIMIR è un progetto personale in sviluppo. Questo sito è una presentazione: la demo è simulata.</p></details>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ CHIUSURA ============ -->
-    <section class="band closing">
-      <div class="closing-glow" aria-hidden="true"></div>
-      <div class="wrap center">
-        <h2 class="mega">MIMIR.</h2>
-        <p class="lead">Il tuo assistente. Solo tuo.</p>
-        <a href="#stato" class="btn light">Segui il progetto</a>
       </div>
     </section>
   </main>
