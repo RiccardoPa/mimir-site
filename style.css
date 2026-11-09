@@ -535,7 +535,7 @@ body::after {
 .switch input:focus-visible + i { outline: 2px solid var(--white); outline-offset: 2px; }
 
 .demo-body { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; }
-.demo-stage { display: flex; flex-direction: column; gap: 18px; min-height: 420px; }
+.demo-stage { display: flex; flex-direction: column; gap: 18px; min-height: 280px; }
 .demo-stage .btn { align-self: flex-start; margin-top: auto; }
 .demo-head { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: center; }
 .demo-orb { width: 64px; }
@@ -621,6 +621,10 @@ body::after {
 .dark .story { color: var(--gray-dark); }
 .dark .story b { color: #fff; }
 
+/* niente fascia vuota tra il disegno di Mac/iPhone e la demo */
+#prodotto { padding-bottom: 48px; }
+#demo { padding-top: 64px; }
+
 /* ============ Privacy ============ */
 .compare { margin-bottom: 72px; }
 .compare-row { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line-light); align-items: center; }
@@ -681,7 +685,16 @@ body::after {
   .mac .film-sub { padding: 0 34% 0 6%; font-size: 2.6cqw; }
   .mac .film-orb { margin-right: 22%; }
   .devices { padding-bottom: 14%; }
-  .timeline li { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  .timeline li { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+  .timeline time { font-size: 22px; }
+  .timeline .tag { margin-bottom: 4px; }
+  .timeline h3 { font-size: 20px; margin-bottom: 4px; }
+  .timeline p { font-size: 15px; line-height: 1.4; }
+  .mini { padding: 10px 12px; gap: 6px; font-size: 13px; margin-top: 6px; }
+  .mini.mono { font-size: 12px; }
+  .tog { width: 28px; height: 16px; }
+  .tog::after { width: 12px; height: 12px; }
+  .tog.on::after { transform: translateX(12px); }
   .timeline .mini { grid-column: auto; }
   .steps { grid-template-columns: 1fr; margin-top: 70px; }
   .steps li + li { border-left: 0; }
@@ -704,14 +717,16 @@ body::after {
   .name-grid { grid-template-columns: 1fr; gap: 10px; }
   .big-rune { font-size: 180px; }
   .modules { gap: 10px; }
-  .mod { height: 290px; }
-  .mod-face { padding: 18px 16px; border-radius: 18px; }
-  .mod b { font-size: 17px; }
-  .mod-back b { font-size: 16px; }
-  .mod-sub { font-size: 13px; }
-  .mod-desc { font-size: 12.5px; line-height: 1.4; }
-  .mod-myth { font-size: 11px; }
-  .mod-mark { font-size: 110px; }
+  /* tessere compatte: davanti solo nome + etichetta, dietro la descrizione */
+  .mod { height: 176px; }
+  .mod-face { padding: 14px 14px; border-radius: 16px; gap: 4px; }
+  .mod-front .mod-n, .mod-sub, .mod-front .mod-mark, .mod-back .mod-top, .mod-back b, .mod-myth { display: none; }
+  .mod-front .mod-top { justify-content: flex-end; }
+  .mod-rune { font-size: 20px; }
+  .mod b { font-size: 16px; letter-spacing: .03em; }
+  .mod-foot { margin-top: 8px; }
+  .mod-back { justify-content: center; }
+  .mod-desc { font-size: 12.5px; line-height: 1.38; }
   .mod-foot .mod-hint { display: none; } /* su telefono basta l'etichetta */
 }
 @media (max-width: 400px) {
