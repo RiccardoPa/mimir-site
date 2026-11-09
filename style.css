@@ -391,15 +391,17 @@ body::after {
 .orbit-center { position: absolute; inset: 38%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #fff; }
 .orbit-center .orb-core { width: 70%; }
 .orbit-center b { font-size: 3cqw; letter-spacing: .2em; font-weight: 600; }
-.orbit-spin { position: absolute; inset: 0; animation: spin 70s linear infinite; }
+.orbit-spin { position: absolute; inset: 0; animation: spin 240s linear infinite; } /* molto lenta: un giro ogni 4 minuti */
 .node { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: rotate(var(--a)) translateY(-42cqw) rotate(calc(-1 * var(--a))); }
 .node span {
   position: absolute; left: -64px; top: -19px; width: 128px; height: 38px; display: grid; place-items: center;
   font-size: 12px; font-weight: 600; letter-spacing: .1em; color: #fff;
   background: rgba(22,22,24,.9); border: 1px solid rgba(255,255,255,.22); border-radius: 980px;
   box-shadow: 0 0 24px rgba(255,255,255,.08);
-  animation: spin 70s linear infinite reverse; /* resta dritto mentre gira */
+  animation: spin 240s linear infinite reverse; /* resta dritto mentre gira */
 }
+/* col mouse sopra l'orbita si ferma, così i nomi si leggono */
+.orbit:hover .orbit-spin, .orbit:hover .node span, .orbit:hover .orbit-ring.o2 { animation-play-state: paused; }
 
 /* tessere dei moduli: si girano come carte quando le tocchi */
 .cards-hint { text-align: center; color: var(--gray-dark); font-size: 14px; margin-bottom: 28px; }
@@ -447,6 +449,24 @@ body::after {
 .mod-back b { font-size: 20px; }
 .mod-desc { font-size: 14.5px; line-height: 1.45; color: var(--ink); }
 .mod-myth { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line-light); font-size: 12.5px; color: var(--gray); font-style: italic; }
+
+/* sul computer: niente carta da girare, la descrizione è subito visibile */
+@media (min-width: 701px) {
+  .cards-hint { display: none; }
+  .mod { height: auto; cursor: default; perspective: none; }
+  .mod-inner, .mod:hover .mod-inner, .mod.open .mod-inner {
+    transform: none; transition: border-color .4s, background .4s;
+    display: flex; flex-direction: column; height: 100%; min-height: 380px; border-radius: 22px; overflow: hidden;
+    background: linear-gradient(160deg, #18181b 0%, #0b0b0d 60%); border: 1px solid var(--line-dark);
+  }
+  .mod:hover .mod-inner { border-color: rgba(255,255,255,.35); }
+  .mod-face { position: static; -webkit-backface-visibility: visible; backface-visibility: visible; border-radius: 0; overflow: visible; }
+  .mod-front { background: none; border: 0; box-shadow: none; padding-bottom: 0; flex: none; min-height: 190px; }
+  .mod-back { transform: none; background: none; color: #d2d2d7; box-shadow: none; padding-top: 14px; flex: 1; }
+  .mod-back .mod-top, .mod-back b, .mod-hint { display: none; }
+  .mod-desc { color: #d2d2d7; }
+  .mod-myth { border-top-color: var(--line-dark); color: var(--gray-dark); }
+}
 
 /* ============ Demo ============ */
 .demo-band { background: radial-gradient(ellipse at 50% 60%, #141416 0%, #000 70%); }
