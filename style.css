@@ -233,7 +233,11 @@ body::after {
     inset 12px 16px 40px rgba(255,255,255,.14),
     0 0 calc(80px + var(--level) * 80px) rgba(255,217,138,calc(.14 + var(--level) * .25)),
     0 0 220px rgba(255,217,138,.06);
-  transform: scale(calc(1 + var(--level) * .07));
+  /* Safari (iPhone): isolation + translateZ tengono il riflesso dentro la sfera.
+     translateZ sta nello stesso transform dello scale, così la sfera "respira" ancora con la voce. */
+  isolation: isolate;
+  -webkit-transform: translateZ(0) scale(calc(1 + var(--level) * .07));
+  transform: translateZ(0) scale(calc(1 + var(--level) * .07));
   transition: transform .18s ease-out, box-shadow .18s ease-out;
 }
 .orb-core.small {
@@ -246,6 +250,10 @@ body::after {
   position: absolute; inset: -25%; border-radius: 50%;
   background: conic-gradient(from 0deg, transparent 0 18%, rgba(255,255,255,.4) 26%, transparent 34% 58%, rgba(255,255,255,.2) 66%, transparent 74%);
   filter: blur(12px); mix-blend-mode: screen;
+  /* il riflesso è grande il 150% della sfera: un cerchio del 33,4% coincide con il bordo della sfera
+     (serve a Safari, che con blur + mix-blend-mode ignora overflow e lo taglia al quadrato) */
+  -webkit-clip-path: circle(33.4% at 50% 50%);
+  clip-path: circle(33.4% at 50% 50%);
   animation: spin 9s linear infinite;
 }
 
