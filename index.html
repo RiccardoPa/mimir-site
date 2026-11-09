@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Runic&display=swap&text=ᛗᛁᚱᚲᛊᚠᛚᚷᚹᛒ" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
   <!-- ============ BARRA IN ALTO ============ -->
   <header class="nav">
     <div class="nav-inner">
-      <a href="#top" class="logo">MIMIR</a>
+      <a href="#top" class="logo"><span class="rune">ᛗ</span> MIMIR</a>
       <nav>
         <a href="#prodotto">Prodotto</a>
         <a href="#giornata">Giornata</a>
@@ -38,7 +39,8 @@
       </div>
 
       <div class="hero-text">
-        <p class="eyebrow">Assistente AI personale · Locale · Vocale</p>
+        <p class="rune-line" aria-label="MIMIR scritto in rune">ᛗ ᛁ ᛗ ᛁ ᚱ</p>
+        <p class="eyebrow">Il mio assistente personale · Locale · Vocale</p>
         <h1>Il tuo secondo cervello.<br><span class="shine">Ha imparato a parlare.</span></h1>
       </div>
 
@@ -83,7 +85,7 @@
     <!-- ============ PRODOTTO: Mac + iPhone ============ -->
     <section id="prodotto" class="band white">
       <div class="wrap center">
-        <p class="eyebrow">GALAXY · Interfaccia</p>
+        <p class="eyebrow"><span class="ch">01</span>GALAXY · Interfaccia</p>
         <h2 class="statement">Inizi sul Mac.<br><span class="soft">Continui sull'iPhone. Senza ripetere niente.</span></h2>
       </div>
 
@@ -140,7 +142,7 @@
     <!-- ============ UNA GIORNATA ============ -->
     <section id="giornata" class="band dark">
       <div class="wrap">
-        <p class="eyebrow">Una giornata con MIMIR</p>
+        <p class="eyebrow"><span class="ch">02</span>Una giornata con MIMIR</p>
         <h2 class="statement">Dalle sette del mattino<br><span class="soft">alle tre di notte. Sempre un passo avanti.</span></h2>
 
         <ol class="timeline">
@@ -213,7 +215,7 @@
     <!-- ============ VOCE ============ -->
     <section id="voce" class="band voice">
       <div class="wrap center">
-        <p class="eyebrow">Interfaccia</p>
+        <p class="eyebrow"><span class="ch">03</span>Interfaccia</p>
         <h2 class="mega">«Ehi Mimir.»</h2>
         <p class="lead">Due parole. Nessuna tastiera, nessuna casella, nessun menu.<br>La tecnologia migliore è quella che non vedi.</p>
         <div class="bigwave" aria-hidden="true"></div>
@@ -229,7 +231,7 @@
     <!-- ============ FUNZIONI (bento) ============ -->
     <section id="funzioni" class="band light">
       <div class="wrap">
-        <p class="eyebrow">Cosa sa fare</p>
+        <p class="eyebrow"><span class="ch">04</span>Cosa sa fare</p>
         <h2 class="statement">Un maggiordomo digitale.<br><span class="soft">Con una squadra intera al suo servizio.</span></h2>
 
         <div class="bento">
@@ -271,10 +273,23 @@
       </div>
     </section>
 
+    <!-- ============ IL NOME ============ -->
+    <section id="nome" class="band white">
+      <div class="wrap name-grid">
+        <div class="big-rune" aria-hidden="true">ᛗ</div>
+        <div>
+          <p class="eyebrow"><span class="ch">05</span>Il nome</p>
+          <h2 class="statement">Perché si chiama MIMIR.</h2>
+          <p class="story">Nella mitologia norrena, <b>Mímir</b> è il più saggio di tutti. Odino rinunciò a un occhio pur di bere alla sua fonte, e anche dopo la morte di Mímir continuò a chiedergli consiglio.</p>
+          <p class="story">Il nome non è scelto a caso: MIMIR è il consigliere che tieni accanto. E i suoi moduli vengono dalla stessa storia: <b>Munin</b>, il corvo della memoria di Odino. <b>Kvasir</b>, l'essere più saggio. <b>Saga</b>, la dea che ogni giorno beve e parla con Odino.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ MODULI IN ORBITA ============ -->
     <section id="moduli" class="band dark">
       <div class="wrap">
-        <p class="eyebrow center">Architettura</p>
+        <p class="eyebrow center"><span class="ch">06</span>Architettura</p>
         <h2 class="statement center">Un cervello.<br><span class="soft">Otto moduli in orbita.</span></h2>
 
         <div class="orbit" aria-hidden="true">
@@ -293,15 +308,136 @@
           </div>
         </div>
 
+        <p class="cards-hint">Tocca una tessera per scoprirla.</p>
         <div class="modules">
-          <div class="mod"><span class="mod-n">01</span><b>MUNIN</b><span>Memoria personale</span></div>
-          <div class="mod"><span class="mod-n">02</span><b>KVASIR</b><span>Conoscenza del mondo</span></div>
-          <div class="mod"><span class="mod-n">03</span><b>SAGA</b><span>Ricerca</span></div>
-          <div class="mod"><span class="mod-n">04</span><b>FORGE</b><span>Sviluppo e auto-riparazione</span></div>
-          <div class="mod"><span class="mod-n">05</span><b>LAB</b><span>Ambiente isolato per i test</span></div>
-          <div class="mod"><span class="mod-n">06</span><b>GALAXY</b><span>Interfaccia visiva</span></div>
-          <div class="mod"><span class="mod-n">07</span><b>VAULT</b><span>Caveau delle credenziali</span></div>
-          <div class="mod"><span class="mod-n">08</span><b>BLACK BOX</b><span>Registro delle azioni, non cancellabile</span></div>
+          <button class="mod" type="button" aria-pressed="false" aria-label="MUNIN: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">01</span><span class="mod-rune rune">ᛗ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᛗ</span>
+                <b>MUNIN</b><span class="mod-sub">Memoria personale</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">01</span><span class="mod-rune rune">ᛗ</span></span>
+                <b>MUNIN</b>
+                <span class="mod-desc">Ricorda per te abitudini, preferenze e dove hai messo le cose. Le memorie private restano sotto chiave e si aprono solo se lo chiedi tu.</span>
+                <span class="mod-myth">Nel mito, Muninn è il corvo della memoria di Odino.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="KVASIR: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">02</span><span class="mod-rune rune">ᚲ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᚲ</span>
+                <b>KVASIR</b><span class="mod-sub">Conoscenza del mondo</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">02</span><span class="mod-rune rune">ᚲ</span></span>
+                <b>KVASIR</b>
+                <span class="mod-desc">Risponde alle domande sul mondo: fatti, spiegazioni, definizioni. È la parte di MIMIR che sa le cose, non quella che ricorda di te.</span>
+                <span class="mod-myth">Nel mito, Kvasir è l'essere più saggio di tutti.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="SAGA: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">03</span><span class="mod-rune rune">ᛊ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᛊ</span>
+                <b>SAGA</b><span class="mod-sub">Ricerca</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">03</span><span class="mod-rune rune">ᛊ</span></span>
+                <b>SAGA</b>
+                <span class="mod-desc">Quando non basta sapere, cerca. Legge più fonti, le confronta e ti riassume la risposta in poche frasi.</span>
+                <span class="mod-myth">Nel mito, Sága è la dea che ogni giorno beve con Odino.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="FORGE: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">04</span><span class="mod-rune rune">ᚠ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᚠ</span>
+                <b>FORGE</b><span class="mod-sub">Sviluppo e auto-riparazione</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">04</span><span class="mod-rune rune">ᚠ</span></span>
+                <b>FORGE</b>
+                <span class="mod-desc">L'officina di MIMIR. Trova i guasti e li ripara, anche di notte. Se serve il tuo permesso, te lo chiede con una soluzione già pronta.</span>
+                <span class="mod-myth">La forgia: dove si costruisce e si aggiusta.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="LAB: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">05</span><span class="mod-rune rune">ᛚ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᛚ</span>
+                <b>LAB</b><span class="mod-sub">Ambiente isolato per i test</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">05</span><span class="mod-rune rune">ᛚ</span></span>
+                <b>LAB</b>
+                <span class="mod-desc">Una stanza chiusa per gli esperimenti. Ogni modifica viene provata qui, lontano dal resto, prima di toccare il sistema vero.</span>
+                <span class="mod-myth">Prima si prova, poi si cambia.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="GALAXY: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">06</span><span class="mod-rune rune">ᚷ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᚷ</span>
+                <b>GALAXY</b><span class="mod-sub">Interfaccia visiva</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">06</span><span class="mod-rune rune">ᚷ</span></span>
+                <b>GALAXY</b>
+                <span class="mod-desc">Il volto di MIMIR: la sfera, le schede e le risposte che vedi sul Mac e sull'iPhone mentre lui ti parla.</span>
+                <span class="mod-myth">Tutto quello che vedi, in un solo posto.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="VAULT: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">07</span><span class="mod-rune rune">ᚹ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᚹ</span>
+                <b>VAULT</b><span class="mod-sub">Caveau delle credenziali</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">07</span><span class="mod-rune rune">ᚹ</span></span>
+                <b>VAULT</b>
+                <span class="mod-desc">Password e chiavi vivono qui, separate da tutto il resto. Nemmeno i moduli di sviluppo possono aprirlo.</span>
+                <span class="mod-myth">La cassaforte: chiusa per tutti.</span>
+              </span>
+            </span>
+          </button>
+          <button class="mod" type="button" aria-pressed="false" aria-label="BLACK BOX: gira la tessera">
+            <span class="mod-inner">
+              <span class="mod-face mod-front">
+                <span class="mod-top"><span class="mod-n">08</span><span class="mod-rune rune">ᛒ</span></span>
+                <span class="mod-mark rune" aria-hidden="true">ᛒ</span>
+                <b>BLACK BOX</b><span class="mod-sub">Registro delle azioni, non cancellabile</span>
+                <span class="mod-hint">Scopri ↻</span>
+              </span>
+              <span class="mod-face mod-back">
+                <span class="mod-top"><span class="mod-n">08</span><span class="mod-rune rune">ᛒ</span></span>
+                <b>BLACK BOX</b>
+                <span class="mod-desc">Ogni azione di MIMIR viene annotata qui, e nessuno può cancellarla. Puoi sempre sapere cosa ha fatto, e quando.</span>
+                <span class="mod-myth">Come la scatola nera di un aereo.</span>
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
@@ -309,7 +445,7 @@
     <!-- ============ DEMO ============ -->
     <section id="demo" class="band dark demo-band">
       <div class="wrap">
-        <p class="eyebrow">Demo</p>
+        <p class="eyebrow"><span class="ch">07</span>Demo</p>
         <h2 class="statement">Non leggerlo.<br><span class="soft">Ascoltalo.</span></h2>
 
         <div class="demo">
@@ -345,7 +481,7 @@
     <!-- ============ PRIVACY ============ -->
     <section id="privacy" class="band white">
       <div class="wrap">
-        <p class="eyebrow">Privacy</p>
+        <p class="eyebrow"><span class="ch">08</span>Privacy</p>
         <h2 class="statement">Ti conosce meglio di chiunque.<br><span class="soft">E non lo dice a nessuno.</span></h2>
 
         <div class="compare">
@@ -379,7 +515,7 @@
     <!-- ============ DOMANDE ============ -->
     <section id="faq" class="band light">
       <div class="wrap narrow">
-        <p class="eyebrow">Domande</p>
+        <p class="eyebrow"><span class="ch">09</span>Domande</p>
         <h2 class="statement">Domande frequenti.</h2>
         <div class="faq">
           <details><summary>MIMIR ascolta sempre quello che dico?</summary><p>No. Resta in ascolto silenzioso e si attiva solo quando sente «Ehi Mimir». Quando hai finito di parlare, il microfono si chiude da solo.</p></details>
@@ -388,6 +524,16 @@
           <details><summary>Posso scrivergli invece di parlare?</summary><p>No, ed è una scelta precisa: MIMIR è solo vocale. Niente caselle di testo, niente tasti.</p></details>
           <details><summary>Quando sarà disponibile?</summary><p>MIMIR è un progetto personale in sviluppo. Questo sito è una presentazione: la demo è simulata.</p></details>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ NOTA PERSONALE ============ -->
+    <section class="band light">
+      <div class="wrap narrow letter">
+        <p class="eyebrow"><span class="ch">10</span>Una nota personale</p>
+        <p class="letter-text">Ho iniziato MIMIR perché volevo un assistente che fosse davvero mio. Che parlasse italiano, che ricordasse le cose giuste e che non mandasse la mia vita sui server di qualcun altro.</p>
+        <p class="letter-text">Lo sto costruendo un pezzo alla volta. Questo sito racconta a che punto sono.</p>
+        <p class="signature">— Riccardo</p>
       </div>
     </section>
 
@@ -406,7 +552,7 @@
   <footer class="footer">
     <div class="wrap">
       <p>MIMIR è un progetto personale in sviluppo. Questo sito è solo una presentazione: la demo è simulata e tutti i nomi e i dati mostrati sono inventati.</p>
-      <p class="fine">Locale · Vocale · Privato</p>
+      <p class="fine"><span class="rune">ᛗᛁᛗᛁᚱ</span> · Fatto a mano da Riccardo · Locale · Vocale · Privato</p>
     </div>
   </footer>
 

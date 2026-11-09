@@ -28,6 +28,9 @@
   "compare quando scorri"): tutto deve essere visibile subito.
 - Font di sistema stile Apple (SF Pro sui Mac, Inter come riserva).
   Niente Orbitron, niente font "futuristici".
+  Unica eccezione: Noto Sans Runic, solo per i simboli delle rune.
+- Tono personale, non da azienda: rune, capitoli numerati, la storia
+  del nome (mitologia norrena) e la nota firmata da Riccardo.
 - Colori: solo bianco, nero e grigi (variabili in cima a style.css).
   Niente fucsia, viola o acqua.
 - La demo in demo.js è simulata: mai dati personali reali,
