@@ -104,7 +104,6 @@ function addLine(step) {
   div.innerHTML = `<small>${step.who === "user" ? "TU" : "MIMIR"}</small>`;
   div.append(step.text);
   transcript.appendChild(div);
-  transcript.scrollTop = transcript.scrollHeight;
 }
 
 function addCard(c) {

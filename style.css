@@ -135,7 +135,7 @@ main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
 .demo.speaking .dot { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 .wave { display: flex; align-items: center; gap: 4px; height: 50px; }
 .wave i { flex: 1; height: 6px; background: var(--accent); border-radius: 4px; opacity: .7; transition: height .12s; }
-.transcript { flex: 1; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; max-height: 300px; }
+.transcript { flex: 1; display: flex; flex-direction: column; gap: 10px; }
 .line { padding: 10px 14px; border-radius: 14px; animation: fadein .4s; max-width: 90%; }
 .line.user { align-self: flex-end; background: rgba(255,255,255,.08); }
 .line.mimir { border-left: 2px solid var(--accent); background: rgba(0,0,0,.25); }
