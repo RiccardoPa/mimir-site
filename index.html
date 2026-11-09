@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="fucsia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIMIR — Assistente AI personale, locale, vocale</title>
+  <meta name="description" content="MIMIR è un assistente AI personale che vive sul tuo Mac: parla italiano, ricorda, agisce. Locale, vocale, privato.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <!-- Reattore: canvas 3D (three.js) + versione CSS di riserva -->
+  <div id="reactor-wrap" aria-hidden="true">
+    <canvas id="reactor"></canvas>
+    <div class="reactor-fallback"><span></span><span></span><span></span></div>
+  </div>
+
+  <header class="nav glass">
+    <a href="#top" class="logo">MIMIR</a>
+    <nav>
+      <a href="#cose">Cos'è</a>
+      <a href="#moduli">Moduli</a>
+      <a href="#demo">Demo</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+    <button id="theme-toggle" class="chip" title="Cambia colore">◐ <span>Acqua</span></button>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <p class="kicker">Assistente AI personale · v1</p>
+      <h1>MIMIR</h1>
+      <p class="tagline">Ti ascolta quando lo chiami. Ricorda quello che conta.<br>Vive sul tuo computer, non nel cloud di qualcun altro.</p>
+      <div class="hero-cta">
+        <a href="#demo" class="btn primary">Guarda la demo</a>
+        <a href="#cose" class="btn">Scopri come funziona</a>
+      </div>
+      <p class="wake">Parola di attivazione: <strong>«Ehi Mimir»</strong></p>
+    </section>
+
+    <!-- COS'È -->
+    <section id="cose" class="section">
+      <h2>Cos'è MIMIR</h2>
+      <p class="lead">Un maggiordomo digitale in stile JARVIS: parla italiano, risponde a voce con frasi brevi e sicure, e coordina una squadra di agenti che si occupano di mail, calendario, casa e molto altro.</p>
+      <div class="grid three">
+        <article class="card glass">
+          <div class="icon">⌂</div>
+          <h3>Locale</h3>
+          <p>Il modello AI gira sul Mac. Funziona anche senza servizi esterni e senza abbonamenti: le AI in cloud sono un'opzione, non una dipendenza.</p>
+        </article>
+        <article class="card glass">
+          <div class="icon">◉</div>
+          <h3>Solo voce</h3>
+          <p>Niente caselle di testo, niente tasti. Dici «Ehi Mimir», parli, lui risponde. Il microfono si chiude da solo quando hai finito.</p>
+        </article>
+        <article class="card glass">
+          <div class="icon">∞</div>
+          <h3>Memoria continua</h3>
+          <p>Inizi una conversazione sul Mac e la riprendi dall'iPhone, senza ricominciare. Le memorie private restano nascoste finché non le chiedi tu.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODULI -->
+    <section id="moduli" class="section">
+      <h2>I moduli</h2>
+      <p class="lead">Al centro c'è MIMIR, il cervello. Intorno, come sfere in orbita, i moduli specializzati.</p>
+      <div class="grid modules">
+        <div class="mod glass core"><b>MIMIR</b><span>Cervello e orchestratore</span></div>
+        <div class="mod glass"><b>MUNIN</b><span>Memoria personale</span></div>
+        <div class="mod glass"><b>KVASIR</b><span>Conoscenza del mondo</span></div>
+        <div class="mod glass"><b>SAGA</b><span>Ricerca</span></div>
+        <div class="mod glass"><b>FORGE</b><span>Sviluppo e auto-riparazione</span></div>
+        <div class="mod glass"><b>LAB</b><span>Ambiente isolato per i test</span></div>
+        <div class="mod glass"><b>GALAXY</b><span>Interfaccia visiva</span></div>
+        <div class="mod glass"><b>VAULT</b><span>Caveau delle credenziali</span></div>
+        <div class="mod glass"><b>BLACK BOX</b><span>Registro delle azioni, non cancellabile</span></div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo" class="section">
+      <h2>Demo</h2>
+      <p class="lead">Una simulazione: dialoghi scritti a mano, dati inventati. Scegli una scena e ascolta.</p>
+      <div class="demo glass">
+        <div class="demo-controls">
+          <button class="chip scene active" data-scene="recap">Recap del mattino</button>
+          <button class="chip scene" data-scene="casa">Casa</button>
+          <button class="chip scene" data-scene="memoria">Memoria privata</button>
+          <button class="chip scene" data-scene="anomalie">Anomalie della notte</button>
+          <label class="chip voice-toggle"><input type="checkbox" id="voice-on" checked> Voce</label>
+        </div>
+        <div class="demo-body">
+          <div class="demo-stage">
+            <div class="status"><i class="dot"></i><span id="demo-status">In ascolto silenzioso…</span></div>
+            <div class="wave" id="wave"></div>
+            <div class="transcript" id="transcript" aria-live="polite"></div>
+            <button class="btn primary" id="demo-play">▶ Di' «Ehi Mimir»</button>
+          </div>
+          <aside class="demo-cards" id="demo-cards"></aside>
+        </div>
+        <p class="note">Tutto ciò che vedi qui è finto: nessun dato reale, nessuna connessione a MIMIR.</p>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy" class="section">
+      <h2>Privacy prima di tutto</h2>
+      <div class="grid three">
+        <article class="card glass"><h3>Dati a casa tua</h3><p>Memorie, mail e calendario vengono elaborati sul tuo computer.</p></article>
+        <article class="card glass"><h3>Segreti nel VAULT</h3><p>Password e chiavi stanno separate da tutto il resto. I moduli di sviluppo non possono toccarle.</p></article>
+        <article class="card glass"><h3>Tutto tracciato</h3><p>Ogni azione finisce nella BLACK BOX: puoi sempre sapere cosa ha fatto MIMIR, e lui non può cancellarlo.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>MIMIR è un progetto personale in sviluppo. Questo sito è solo una presentazione.</p>
+  </footer>
+
+  <script src="demo.js"></script>
+  <script type="module" src="reactor.js"></script>
+  <script>
+    // se three.js non si carica entro 4 secondi, mostra il reattore CSS
+    setTimeout(() => { if (!window.mimirReactor) document.body.classList.add("no-webgl"); }, 4000);
+  </script>
+</body>
+</html>
